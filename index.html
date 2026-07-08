@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -19,7 +19,9 @@
 
     <header>
 
-        <img src="assets/logo.png" class="logo" alt="Deutsch Will Logo">
+        <div class="logo">
+            <img src="assets/logo.png" alt="Deutsch Will Logo">
+        </div>
 
         <h1>Deutsch Will</h1>
 
@@ -30,95 +32,93 @@
     </header>
 
 
-    <main>
+    <section class="hero">
 
-        <section class="hero">
+        <div class="hero-card">
 
-            <button class="ai-btn">
+            <i data-lucide="mic" class="hero-icon"></i>
 
-                <i data-lucide="mic"></i>
+            <h2>Talk with AI</h2>
 
-                <div>
+            <p>
+                Practice real conversations with your AI teacher.
+            </p>
 
-                    <h2>Talk with AI</h2>
-
-                    <p>Practice real conversations with your AI teacher.</p>
-
-                </div>
-
+            <button id="startChat">
+                Start Conversation
             </button>
 
-        </section>
+        </div>
+
+    </section>
 
 
-        <section class="cards">
+    <section class="features">
 
-            <div class="card">
+        <div class="feature-card">
 
-                <i data-lucide="book-open"></i>
+            <i data-lucide="book-open"></i>
 
-                <h3>Lug'at</h3>
+            <h3>Lug'at</h3>
 
-            </div>
-
-
-            <div class="card">
-
-                <i data-lucide="clipboard-check"></i>
-
-                <h3>Testlar</h3>
-
-            </div>
+        </div>
 
 
-            <div class="card">
+        <div class="feature-card">
 
-                <i data-lucide="film"></i>
+            <i data-lucide="clipboard-check"></i>
 
-                <h3>Movies</h3>
+            <h3>Testlar</h3>
 
-            </div>
+        </div>
 
-        </section>
 
-    </main>
+        <div class="feature-card">
+
+            <i data-lucide="film"></i>
+
+            <h3>Movies</h3>
+
+        </div>
+
+    </section>
 
 </div>
 
 
 <nav class="bottom-nav">
 
-    <a href="#" class="active">
+    <button class="active">
 
         <i data-lucide="house"></i>
 
         <span>Home</span>
 
-    </a>
+    </button>
 
-    <a href="#">
+    <button>
 
         <i data-lucide="message-circle"></i>
 
         <span>Chat</span>
 
-    </a>
+    </button>
 
-    <a href="#">
+    <button>
 
         <i data-lucide="trophy"></i>
 
         <span>Rank</span>
 
-    </a>
+    </button>
 
-    <a href="#">
+    <button>
 
         <i data-lucide="user"></i>
 
         <span>Profil</span>
 
-    </a>
+    </button>
 
 </nav>
 
