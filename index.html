@@ -19,82 +19,117 @@
 
     <header>
 
-        <div class="logo">
-            <img src="assets/logo.png" alt="Deutsch Will">
-        </div>
+        <img src="assets/logo.png" class="logo" alt="Deutsch Will Logo">
 
         <h1>Deutsch Will</h1>
 
         <p class="subtitle">
-            Learn German naturally with your AI Teacher
+            Learn German with Your AI Teacher
         </p>
 
     </header>
 
 
-    <section class="hero">
+    <main>
 
-        <div class="hero-card">
+        <section class="hero">
 
-            <h2>🇩🇪 Welcome!</h2>
+            <button class="ai-btn">
 
-            <p>
-                Practice German every day with your personal AI teacher.
-            </p>
+                <i data-lucide="mic"></i>
 
-            <button id="startChat">
-                Start Conversation
+                <div>
+
+                    <h2>Talk with AI</h2>
+
+                    <p>Practice real conversations with your AI teacher.</p>
+
+                </div>
+
             </button>
 
-        </div>
-
-    </section>
+        </section>
 
 
-    <section class="progress">
+        <section class="cards">
 
-        <h3>Today's Progress</h3>
+            <div class="card">
 
-        <div class="progress-box">
+                <i data-lucide="book-open"></i>
 
-            <div class="item">
-                🔥
-                <span>0 Day Streak</span>
+                <h3>Lug'at</h3>
+
             </div>
 
-            <div class="item">
-                ⭐
-                <span>0 XP</span>
+
+            <div class="card">
+
+                <i data-lucide="clipboard-check"></i>
+
+                <h3>Testlar</h3>
+
             </div>
 
-        </div>
 
-    </section>
+            <div class="card">
+
+                <i data-lucide="film"></i>
+
+                <h3>Movies</h3>
+
+            </div>
+
+        </section>
+
+    </main>
 
 </div>
 
 
 <nav class="bottom-nav">
 
-    <button class="active">
-        🏠
+    <a href="#" class="active">
+
+        <i data-lucide="house"></i>
+
         <span>Home</span>
-    </button>
 
-    <button>
-        💬
+    </a>
+
+    <a href="#">
+
+        <i data-lucide="message-circle"></i>
+
         <span>Chat</span>
-    </button>
 
-    <button>
-        👤
-        <span>Profile</span>
-    </button>
+    </a>
+
+    <a href="#">
+
+        <i data-lucide="trophy"></i>
+
+        <span>Rank</span>
+
+    </a>
+
+    <a href="#">
+
+        <i data-lucide="user"></i>
+
+        <span>Profil</span>
+
+    </a>
 
 </nav>
 
 
 <script src="script.js"></script>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<script>
+lucide.createIcons();
+</script>
 
 </body>
 </html>
