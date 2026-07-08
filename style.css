@@ -7,60 +7,79 @@
 body{
     font-family:'Poppins',sans-serif;
     background:#F8F5F0;
-    color:#111111;
+    color:#111;
 }
 
 .container{
     max-width:480px;
     margin:auto;
-    padding:25px;
+    padding:20px;
+    padding-bottom:100px;
 }
 
-header{
+/* HEADER */
+
+.header{
+    position:relative;
     text-align:center;
-    margin-top:20px;
+    margin-top:10px;
+    margin-bottom:35px;
 }
 
-.logo img{
-    width:90px;
-    height:90px;
-    border-radius:50%;
+.logo-box{
+    position:absolute;
+    top:0;
+    left:0;
 }
 
-h1{
-    margin-top:15px;
-    font-size:30px;
+.logo-box img{
+    width:52px;
+    height:52px;
+    border-radius:14px;
+}
+
+.header h1{
+    font-size:31px;
     font-weight:700;
 }
 
 .subtitle{
-    color:#666;
     margin-top:8px;
+    color:#666;
     font-size:15px;
 }
 
+/* TALK WITH AI */
+
 .hero-card{
-    margin-top:35px;
-    background:#FFFFFF;
-    border-radius:22px;
-    padding:28px;
+    background:#ffffff;
+    border-radius:24px;
+    padding:30px 25px;
     text-align:center;
-    box-shadow:0 8px 25px rgba(0,0,0,.06);
+    box-shadow:0 10px 30px rgba(0,0,0,.06);
 }
 
-.hero-card h2{
+.hero-card svg{
+    width:38px;
+    height:38px;
+    color:#C89B3C;
     margin-bottom:15px;
 }
 
+.hero-card h2{
+    font-size:24px;
+    margin-bottom:12px;
+}
+
 .hero-card p{
-    color:#555;
+    color:#666;
     line-height:1.6;
 }
 
 #startChat{
     width:100%;
     margin-top:25px;
-    padding:16px;
+    padding:17px;
     border:none;
     border-radius:16px;
     background:#C89B3C;
@@ -68,48 +87,85 @@ h1{
     font-size:17px;
     font-weight:600;
     cursor:pointer;
-    transition:.3s;
+    transition:.25s;
+}
+
+#startChat:hover{
+    transform:translateY(-2px);
 }
 
 #startChat:active{
     transform:scale(.98);
 }
 
-.progress{
-    margin-top:35px;
+/* FEATURES */
+
+.features{
+    margin-top:30px;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
 }
 
-.progress h3{
-    margin-bottom:15px;
-}
-
-.progress-box{
-    background:#FFFFFF;
+.feature-card{
+    background:white;
     border-radius:20px;
-    padding:20px;
-    box-shadow:0 8px 25px rgba(0,0,0,.06);
+    padding:18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 8px 25px rgba(0,0,0,.05);
+    transition:.25s;
+    cursor:pointer;
 }
 
-.item{
+.feature-card:hover{
+    transform:translateY(-2px);
+}
+
+.feature-left{
     display:flex;
     align-items:center;
-    gap:12px;
-    font-size:18px;
-    margin:15px 0;
+    gap:16px;
 }
+
+.feature-left svg{
+    width:30px;
+    height:30px;
+    color:#C89B3C;
+}
+
+.feature-left h3{
+    font-size:18px;
+}
+
+.feature-left p{
+    font-size:13px;
+    color:#777;
+    margin-top:4px;
+}
+
+.feature-card>svg{
+    width:20px;
+    height:20px;
+    color:#999;
+}
+
+/* BOTTOM NAV */
 
 .bottom-nav{
     position:fixed;
     bottom:0;
-    left:0;
-    right:0;
+    left:50%;
+    transform:translateX(-50%);
+    width:100%;
     max-width:480px;
-    margin:auto;
-    background:white;
+    background:#ffffff;
     display:flex;
     justify-content:space-around;
-    padding:15px 0;
-    border-top:1px solid #eee;
+    padding:14px 0;
+    border-top:1px solid #ececec;
+    box-shadow:0 -5px 18px rgba(0,0,0,.05);
 }
 
 .bottom-nav button{
@@ -118,10 +174,20 @@ h1{
     display:flex;
     flex-direction:column;
     align-items:center;
-    font-size:14px;
-    color:#555;
+    gap:6px;
+    color:#666;
+    cursor:pointer;
 }
 
-.bottom-nav .active{
+.bottom-nav button svg{
+    width:22px;
+    height:22px;
+}
+
+.bottom-nav button.active{
     color:#C89B3C;
+}
+
+.bottom-nav span{
+    font-size:12px;
 }
