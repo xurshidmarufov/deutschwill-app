@@ -283,3 +283,152 @@ body{
     gap:16px;
 
 }
+/* ==========================
+   STYLE.CSS
+   PART 2
+========================== */
+
+/* FEATURE CARDS */
+
+.feature-card{
+    border:none;
+    border-radius:22px;
+    padding:22px 18px;
+    text-align:left;
+    cursor:pointer;
+    transition:0.25s ease;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    min-height:160px;
+}
+
+.feature-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 25px rgba(0,0,0,.08);
+}
+
+.feature-card svg{
+    width:34px;
+    height:34px;
+    margin-bottom:18px;
+}
+
+.feature-card h3{
+    font-size:18px;
+    font-weight:600;
+    margin-bottom:8px;
+    color:var(--text);
+}
+
+.feature-card p{
+    font-size:14px;
+    color:var(--gray);
+    line-height:1.5;
+}
+
+/* CARD COLORS */
+
+.vocabulary{
+    background:var(--green);
+}
+
+.vocabulary svg{
+    color:#2E7D32;
+}
+
+.tests{
+    background:var(--yellow);
+}
+
+.tests svg{
+    color:#C58B00;
+}
+
+.movies{
+    background:var(--purple);
+}
+
+.movies svg{
+    color:#6B4EFF;
+}
+
+/* BOTTOM NAVIGATION */
+
+.bottom-nav{
+    position:fixed;
+    left:50%;
+    bottom:0;
+    transform:translateX(-50%);
+    width:100%;
+    max-width:480px;
+    background:#fff;
+    border-top:1px solid #ececec;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    padding:12px 0 calc(12px + env(safe-area-inset-bottom));
+    box-shadow:0 -8px 20px rgba(0,0,0,.05);
+}
+
+.nav-item{
+    border:none;
+    background:none;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:6px;
+    color:#888;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.nav-item svg{
+    width:22px;
+    height:22px;
+}
+
+.nav-item span{
+    font-size:12px;
+    font-weight:500;
+}
+
+.nav-item.active{
+    color:var(--gold);
+}
+
+.nav-item:hover{
+    color:var(--gold);
+}
+
+/* MOBILE */
+
+@media (max-width:430px){
+
+    .container{
+        padding:16px;
+        padding-bottom:100px;
+    }
+
+    .header h1{
+        font-size:28px;
+    }
+
+    .subtitle{
+        font-size:14px;
+    }
+
+    .hero-card{
+        padding:24px 20px;
+    }
+
+    .hero-card h2{
+        font-size:24px;
+    }
+
+    .feature-card{
+        min-height:145px;
+        padding:18px;
+    }
+
+}
