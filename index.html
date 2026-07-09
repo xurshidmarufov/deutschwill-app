@@ -3,19 +3,19 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Deutsch Will</title>
+    <title>Deutsch Will</title>
 
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 </head>
 
@@ -23,136 +23,128 @@
 
 <div class="container">
 
-<header class="header">
+    <!-- Header -->
 
-<div class="logo-box">
+    <header class="header">
 
-<img src="assets/logo.png" alt="Deutsch Will Logo">
+        <div class="logo-box">
+
+            <img src="assets/logo.png" alt="Deutsch Will Logo">
+
+        </div>
+
+        <div class="header-text">
+
+            <h1>🇩🇪 Deutsch Will</h1>
+
+            <p>Learn German with Your AI Teacher</p>
+
+        </div>
+
+    </header>
+
+    <!-- Hero -->
+
+    <section class="hero">
+
+        <div class="hero-card">
+
+            <div class="hero-icon">
+
+                <i data-lucide="mic"></i>
+
+            </div>
+
+            <h2>Talk with Will</h2>
+
+            <div class="status">
+
+                <span class="online-dot"></span>
+
+                <span>Will is Ready</span>
+
+            </div>
+
+            <p class="hero-description">
+
+                Practice real German conversations with your personal AI teacher.
+
+            </p>
+
+            <button id="startChat">
+
+                Start Conversation
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- Feature Cards -->
+
+    <section class="features">
+                <button class="feature-card vocabulary">
+
+            <div class="icon-circle">
+                <i data-lucide="book-open"></i>
+            </div>
+
+            <h3>Lug'at</h3>
+
+            <p>Yangi so'zlarni o'rganing</p>
+
+        </button>
+
+
+        <button class="feature-card tests">
+
+            <div class="icon-circle">
+                <i data-lucide="clipboard-check"></i>
+            </div>
+
+            <h3>Testlar</h3>
+
+            <p>Bilimingizni sinab ko'ring</p>
+
+        </button>
+
+
+        <button class="feature-card movies">
+
+            <div class="icon-circle">
+                <i data-lucide="clapperboard"></i>
+            </div>
+
+            <h3>Movies</h3>
+
+            <p>Film va seriallar orqali o'rganing</p>
+
+        </button>
+
+
+        <button class="feature-card challenge">
+
+            <div class="icon-circle">
+                <i data-lucide="target"></i>
+            </div>
+
+            <div class="challenge-badge">
+                TODAY
+            </div>
+
+            <h3>Daily Challenge</h3>
+
+            <p>Bugungi mashqni bajaring</p>
+
+        </button>
+
+    </section>
 
 </div>
+<!-- Bottom Navigation -->
 
-<h1>🇩🇪 Deutsch Will</h1>
-
-<p class="subtitle">
-
-Learn German with Your AI Teacher
-
-</p>
-
-</header>
-
-
-
-<section class="hero">
-
-<div class="hero-card">
-
-<div class="hero-icon">
-
-<i data-lucide="mic"></i>
-
-</div>
-
-<h2>Talk with Will</h2>
-
-<div class="hero-status">
-
-<span></span>
-
-Will is Ready
-
-</div>
-
-<p>
-
-Practice real German conversations with your personal AI teacher.
-
-</p>
-
-<button id="startChat">
-
-Start Conversation
-
-</button>
-
-</div>
-
-</section>
-
-
-
-<section class="features">
-    <button class="feature-card vocabulary">
-
-    <div class="icon-circle">
-        <i data-lucide="book-open"></i>
-    </div>
-
-    <h3>Lug'at</h3>
-
-    <p>Learn new German words</p>
-
-    <div class="feature-arrow">
-        <i data-lucide="arrow-right"></i>
-    </div>
-
-</button>
-
-
-<button class="feature-card tests">
-
-    <div class="icon-circle">
-        <i data-lucide="clipboard-check"></i>
-    </div>
-
-    <h3>Testlar</h3>
-
-    <p>Check your knowledge</p>
-
-    <div class="feature-arrow">
-        <i data-lucide="arrow-right"></i>
-    </div>
-
-</button>
-
-
-<button class="feature-card movies">
-
-    <div class="icon-circle">
-        <i data-lucide="clapperboard"></i>
-    </div>
-
-    <h3>Movies</h3>
-
-    <p>Learn with subtitles</p>
-
-    <div class="feature-arrow">
-        <i data-lucide="arrow-right"></i>
-    </div>
-
-</button>
-
-
-<button class="feature-card grammar">
-
-    <div class="icon-circle">
-        <i data-lucide="languages"></i>
-    </div>
-
-    <h3>Grammar</h3>
-
-    <p>Learn German rules</p>
-
-    <div class="feature-arrow">
-        <i data-lucide="arrow-right"></i>
-    </div>
-
-</button>
-
-</section>
-
-</div> 
-    <nav class="bottom-nav">
+<nav class="bottom-nav">
 
     <button class="nav-item active">
 
@@ -164,7 +156,7 @@ Start Conversation
 
     <button class="nav-item">
 
-        <i data-lucide="message-circle"></i>
+        <i data-lucide="messages-square"></i>
 
         <span>Chat</span>
 
@@ -188,6 +180,7 @@ Start Conversation
 
 </nav>
 
+<!-- Lucide Icons -->
 
 <script src="https://unpkg.com/lucide@latest"></script>
 
@@ -195,7 +188,10 @@ Start Conversation
     lucide.createIcons();
 </script>
 
+<!-- Main Script -->
+
 <script src="script.js"></script>
 
 </body>
+
 </html>
