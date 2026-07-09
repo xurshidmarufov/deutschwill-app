@@ -755,3 +755,180 @@ button,
     color:rgba(0,0,0,.35);
 
 }
+/*=========================
+PART 5
+FINAL TOUCH
+=========================*/
+
+/* Grammar */
+
+.grammar{
+
+    background:#EAF4FF;
+
+}
+
+.grammar .icon-circle{
+
+    background:rgba(255,255,255,.72);
+
+}
+
+.grammar svg{
+
+    color:#2F80ED;
+
+}
+
+/* Card shine */
+
+.feature-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:60%;
+
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.35),
+        transparent
+    );
+
+    transition:.8s;
+
+}
+
+.feature-card:hover::before{
+
+    left:140%;
+
+}
+
+/* Hero animation */
+
+.hero-card{
+
+    animation:heroFade .6s ease;
+
+}
+
+@keyframes heroFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* Feature animation */
+
+.feature-card{
+
+    animation:cardFade .5s ease;
+
+}
+
+@keyframes cardFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* Better spacing */
+
+.feature-card h3{
+
+    margin-top:2px;
+
+}
+
+.feature-card p{
+
+    margin-top:4px;
+
+}
+
+/* Navigation active */
+
+.nav-item.active{
+
+    font-weight:700;
+
+}
+
+/* Mobile */
+
+@media(max-width:390px){
+
+    .features{
+
+        gap:14px;
+
+    }
+
+    .feature-card{
+
+        min-height:140px;
+
+        padding:18px;
+
+    }
+
+    .icon-circle{
+
+        width:44px;
+
+        height:44px;
+
+    }
+
+    .icon-circle svg{
+
+        width:24px;
+
+        height:24px;
+
+    }
+
+    .hero-card h2{
+
+        font-size:26px;
+
+    }
+
+}
