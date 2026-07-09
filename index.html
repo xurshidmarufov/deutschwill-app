@@ -1,81 +1,188 @@
-/*====================================
-  RESET
-====================================*/
+<!DOCTYPE html>
+<html lang="en">
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+<head>
 
-body{
+    <meta charset="UTF-8">
 
-    font-family:'Poppins',sans-serif;
-    background:#F8F5EF;
-    color:#1F1F1F;
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-}
+    <title>Deutsch Will</title>
 
-/*====================================
-  CONTAINER
-====================================*/
+    <link rel="stylesheet" href="style.css">
 
-.container{
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-    max-width:480px;
-    margin:auto;
-    padding:24px 20px 110px;
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-}
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-/*====================================
-  HEADER
-====================================*/
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-.header{
+</head>
 
-    display:flex;
-    align-items:center;
-    gap:14px;
-    margin-bottom:28px;
+<body>
 
-}
+<div class="container">
 
-.logo-box{
+    <!-- Header -->
 
-    width:44px;
-    height:44px;
+    <header class="header">
 
-}
+        <div class="logo-box">
 
-.logo-box img{
+            <img src="assets/logo.png" alt="Logo">
 
-    width:100%;
-    height:100%;
-    object-fit:contain;
+        </div>
 
-}
+        <div class="header-content">
 
-.header-content{
+            <h1>🇩🇪 Deutsch Will</h1>
 
-    display:flex;
-    flex-direction:column;
+            <p>Learn German with Your AI Teacher</p>
 
-}
+        </div>
 
-.header-content h1{
+    </header>
 
-    font-size:27px;
-    font-weight:700;
-    color:#1F1F1F;
-    line-height:1.2;
+    <!-- Hero -->
 
-}
+    <section class="hero">
 
-.header-content p{
+        <div class="hero-card">
 
-    margin-top:3px;
-    font-size:13px;
-    color:#777;
+            <h2 class="hero-title">
 
-}
+                <i data-lucide="mic"></i>
+
+                <span>Talk with Will</span>
+
+            </h2>
+
+            <div class="status">
+
+                <span class="online-dot"></span>
+
+                <span>Will is Ready</span>
+
+            </div>
+
+            <p class="hero-description">
+
+                Practice real German conversations with your personal AI teacher.
+
+            </p>
+
+            <button id="startChat">
+
+                Start Conversation
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- Features -->
+
+    <section class="features"        <button class="feature-card vocabulary">
+
+            <div class="feature-icon">
+                <i data-lucide="book-open"></i>
+            </div>
+
+            <h3>Lug'at</h3>
+
+            <p>Yangi so'zlarni o'rganing</p>
+
+        </button>
+
+
+        <button class="feature-card tests">
+
+            <div class="feature-icon">
+                <i data-lucide="clipboard-check"></i>
+            </div>
+
+            <h3>Testlar</h3>
+
+            <p>Bilimingizni sinab ko'ring</p>
+
+        </button>
+
+
+        <button class="feature-card movies">
+
+            <div class="feature-icon">
+                <i data-lucide="clapperboard"></i>
+            </div>
+
+            <h3>Movies</h3>
+
+            <p>Film va seriallar orqali o'rganing</p>
+
+        </button>
+
+
+        <button class="feature-card challenge">
+
+            <div class="feature-icon">
+                <i data-lucide="target"></i>
+            </div>
+
+            <h3>Daily Challenge</h3>
+
+            <p>Bugungi mashqni bajaring</p>
+
+        </button>
+
+    </section>
+
+</div>
+<!-- Bottom Navigation -->
+
+<nav class="bottom-nav">
+
+    <button class="nav-item active">
+
+        <i data-lucide="house"></i>
+
+        <span>Home</span>
+
+    </button>
+
+    <button class="nav-item">
+
+        <i data-lucide="message-circle"></i>
+
+        <span>Chat</span>
+
+    </button>
+
+    <button class="nav-item">
+
+        <i data-lucide="trophy"></i>
+
+        <span>Rank</span>
+
+    </button>
+
+    <button class="nav-item">
+
+        <i data-lucide="user"></i>
+
+        <span>Profil</span>
+
+    </button>
+
+</nav>
+
+<script>
+    lucide.createIcons();
+</script>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
