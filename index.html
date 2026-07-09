@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Deutsch Will</title>
 
     <link rel="stylesheet" href="style.css">
@@ -11,120 +12,96 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-</head>
 
+</head>
 <body>
 
 <div class="container">
 
-<header class="header">
+    <header class="header">
 
-    <div class="logo-box">
-        <img src="assets/logo.png" alt="Logo">
-    </div>
+        <div class="logo-box">
+            <img src="assets/logo.png" alt="Deutsch Will Logo">
+        </div>
 
-    <h1>Deutsch Will</h1>
+        <h1>🇩🇪 Deutsch Will</h1>
 
-    <p class="subtitle">
-        Learn German with Your AI Teacher
-    </p>
-
-</header>
-
-
-<section class="hero">
-
-    <div class="hero-card">
-
-        <i data-lucide="mic"></i>
-
-        <h2>Talk with AI</h2>
-
-        <p>
-            Practice real conversations with your AI teacher.
+        <p class="subtitle">
+            Learn German with Your AI Teacher
         </p>
 
-        <button id="startChat">
-            Start Conversation
-        </button>
-
-    </div>
-
-</section>
+    </header>
 
 
-<section class="features">
+    <section class="hero">
 
-    <div class="feature-card">
+        <div class="hero-card">
 
-        <div class="feature-left">
+            <i data-lucide="mic"></i>
+
+            <h2>Talk with Will</h2>
+
+            <div class="hero-status">
+                <span></span>
+                Will is Ready
+            </div>
+
+            <p>
+                Practice real German conversations with your personal AI teacher.
+            </p>
+
+            <button id="startChat">
+                Start Conversation
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <section class="features">
+
+        <button class="feature-card vocabulary">
 
             <i data-lucide="book-open"></i>
 
-            <div>
+            <h3>Lug'at</h3>
 
-                <h3>Lug'at</h3>
+            <p>Learn new German words</p>
 
-                <p>Learn new German words</p>
-
-            </div>
-
-        </div>
-
-        <i data-lucide="chevron-right"></i>
-
-    </div>
+        </button>
 
 
-    <div class="feature-card">
-
-        <div class="feature-left">
+        <button class="feature-card tests">
 
             <i data-lucide="clipboard-check"></i>
 
-            <div>
+            <h3>Testlar</h3>
 
-                <h3>Testlar</h3>
+            <p>Check your knowledge</p>
 
-                <p>Check your knowledge</p>
-
-            </div>
-
-        </div>
-
-        <i data-lucide="chevron-right"></i>
-
-    </div>
+        </button>
 
 
-    <div class="feature-card">
-
-        <div class="feature-left">
+        <button class="feature-card movies">
 
             <i data-lucide="film"></i>
 
-            <div>
+            <h3>Movies</h3>
 
-                <h3>Movies</h3>
+            <p>Learn with subtitles</p>
 
-                <p>German movies with subtitles</p>
+        </button>
 
-            </div>
 
-        </div>
-
-        <i data-lucide="chevron-right"></i>
-
-    </div>
-
-</section>
+    </section>
 
 </div>
 
 
 <nav class="bottom-nav">
 
-    <button class="active">
+    <button class="nav-item active">
 
         <i data-lucide="house"></i>
 
@@ -132,7 +109,8 @@
 
     </button>
 
-    <button>
+
+    <button class="nav-item">
 
         <i data-lucide="message-circle"></i>
 
@@ -140,7 +118,8 @@
 
     </button>
 
-    <button>
+
+    <button class="nav-item">
 
         <i data-lucide="trophy"></i>
 
@@ -148,7 +127,8 @@
 
     </button>
 
-    <button>
+
+    <button class="nav-item">
 
         <i data-lucide="user"></i>
 
@@ -159,13 +139,13 @@
 </nav>
 
 
-<script src="script.js"></script>
-
 <script src="https://unpkg.com/lucide@latest"></script>
 
 <script>
 lucide.createIcons();
 </script>
+
+<script src="script.js"></script>
 
 </body>
 </html>
