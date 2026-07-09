@@ -84,9 +84,7 @@ body{
 ====================================*/
 
 .hero{
-
     margin-bottom:30px;
-
 }
 
 .hero-card{
@@ -94,15 +92,18 @@ body{
     background:linear-gradient(
         135deg,
         #FFFFFF 0%,
-        #EEF7FF 55%,
-        #FFE8A8 100%
+        #D9ECFF 55%,
+        #FFF4C7 100%
     );
 
     border-radius:24px;
 
     padding:24px;
 
-    box-shadow:0 12px 28px rgba(0,0,0,.08);
+    border:1px solid rgba(255,255,255,.6);
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.08);
 
 }
 
@@ -114,7 +115,7 @@ body{
 
     gap:10px;
 
-    font-size:26px;
+    font-size:27px;
 
     font-weight:700;
 
@@ -126,11 +127,13 @@ body{
 
 .hero-title svg{
 
-    width:24px;
+    width:25px;
 
-    height:24px;
+    height:25px;
 
-    color:#D9A404;
+    color:#4338CA;
+
+    flex-shrink:0;
 
 }
 
@@ -144,9 +147,11 @@ body{
 
     padding:7px 14px;
 
-    border-radius:50px;
+    border-radius:999px;
 
-    background:#EDF9F0;
+    background:rgba(255,255,255,.65);
+
+    backdrop-filter:blur(8px);
 
     margin-bottom:18px;
 
@@ -174,9 +179,9 @@ body{
 
     font-size:14px;
 
-    color:#666;
-
     line-height:1.6;
+
+    color:#555;
 
     margin-bottom:22px;
 
@@ -202,13 +207,15 @@ body{
 
     cursor:pointer;
 
-    transition:.25s;
+    box-shadow:0 8px 20px rgba(232,188,82,.30);
+
+    transition:.25s ease;
 
 }
 
 #startChat:hover{
 
-    background:#E1B445;
+    transform:translateY(-2px);
 
 }
 
