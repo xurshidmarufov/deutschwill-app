@@ -97,151 +97,90 @@ body{
 ========================= */
 
 .hero{
-
-    margin-bottom:28px;
-
+    margin-bottom:30px;
 }
 
 .hero-card{
-
     background:#FFFFFF;
-
     border-radius:24px;
-
-    padding:28px 22px;
-
+    padding:24px 22px;
     text-align:center;
-
     box-shadow:0 12px 35px rgba(0,0,0,.06);
-
 }
 
 .hero-icon{
-
-    width:52px;
-
-    height:52px;
-
-    margin:0 auto 18px;
-
-    border-radius:16px;
-
-    background:#FFF8E8;
-
+    width:50px;
+    height:50px;
+    margin:0 auto 16px;
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
+    border-radius:16px;
+    background:linear-gradient(135deg,#FFF7DE,#E8BC52);
+    box-shadow:0 8px 20px rgba(232,188,82,.28);
 }
 
 .hero-icon svg{
-
-    width:24px;
-
-    height:24px;
-
-    color:var(--gold);
-
+    width:23px;
+    height:23px;
+    color:#7A5A00;
 }
 
 .hero-card h2{
-
-    font-size:30px;
-
+    font-size:28px;
     font-weight:700;
-
-    margin-bottom:14px;
-
+    color:#1F1F1F;
+    margin-bottom:12px;
 }
 
 .status{
-
     display:inline-flex;
-
     align-items:center;
-
     gap:8px;
-
-    padding:8px 16px;
-
-    background:#EEF8F0;
-
-    border-radius:50px;
-
-    margin-bottom:20px;
-
-    font-size:14px;
-
-    font-weight:600;
-
+    padding:7px 15px;
+    border-radius:999px;
+    background:#EEF9F1;
     color:#2E7D32;
-
+    font-size:13px;
+    font-weight:600;
+    margin-bottom:18px;
 }
 
 .online-dot{
-
-    width:10px;
-
-    height:10px;
-
+    width:9px;
+    height:9px;
     border-radius:50%;
-
-    background:#39C655;
-
+    background:#38C172;
 }
 
 .hero-description{
-
-    color:#6F6F6F;
-
-    font-size:15px;
-
-    line-height:1.7;
-
-    max-width:300px;
-
+    max-width:290px;
     margin:0 auto;
-
+    color:#777;
+    font-size:14px;
+    line-height:1.6;
 }
 
 #startChat{
-
-    display:block;
-
-    width:270px;
-
-    height:50px;
-
-    margin:24px auto 0;
-
+    width:260px;
+    height:48px;
+    margin:22px auto 0;
     border:none;
-
     border-radius:16px;
-
-    background:#E8BC52;
-
-    color:#FFFFFF;
-
-    font-size:17px;
-
+    background:linear-gradient(135deg,#F5CC63,#E8BC52);
+    color:#fff;
+    font-size:16px;
     font-weight:700;
-
     cursor:pointer;
-
-    transition:.25s;
-
+    box-shadow:0 10px 22px rgba(232,188,82,.28);
+    transition:.25s ease;
 }
 
 #startChat:hover{
-
-    background:#E2B13E;
-
+    transform:translateY(-2px);
 }
 
 #startChat:active{
-
     transform:scale(.98);
-
+    box-shadow:0 5px 12px rgba(232,188,82,.18);
 }
