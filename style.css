@@ -89,7 +89,7 @@ transform: translateY(-3px);
     font-weight:700;
     color:#1F1F1F;
     line-height:1.2;
-
+text-align:center;
 }
 
 .header-content p{
@@ -97,7 +97,9 @@ transform: translateY(-3px);
     margin-top:3px;
     font-size:13px;
     color:#777;
+text-align:center;
 
+    width:100%;
 }
 /*====================================
   HERO
