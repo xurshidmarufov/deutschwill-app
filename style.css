@@ -233,3 +233,188 @@ body{
     transform:scale(.98);
 
 }
+/*====================================
+  FEATURES
+====================================*/
+
+.features{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:14px;
+
+}
+
+.feature-card{
+
+    border:none;
+
+    border-radius:20px;
+
+    padding:18px 16px;
+
+    text-align:left;
+
+    cursor:pointer;
+
+    transition:.25s ease;
+
+    box-shadow:0 8px 22px rgba(0,0,0,.06);
+
+}
+
+.feature-card:active{
+
+    transform:scale(.97);
+
+}
+
+.feature-icon{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:14px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin-bottom:14px;
+
+}
+
+.feature-icon svg{
+
+    width:22px;
+
+    height:22px;
+
+}
+
+.feature-card h3{
+
+    font-size:18px;
+
+    font-weight:700;
+
+    color:#1F1F1F;
+
+    margin-bottom:6px;
+
+}
+
+.feature-card p{
+
+    font-size:12px;
+
+    color:#666;
+
+    line-height:1.5;
+
+}
+
+/* Lug'at */
+
+.vocabulary{
+
+    background:linear-gradient(
+        135deg,
+        #FFFFFF 0%,
+        #EAFBF1 55%,
+        #D8F5E4 100%
+    );
+
+}
+
+.vocabulary .feature-icon{
+
+    background:#DDF6E8;
+
+}
+
+.vocabulary svg{
+
+    color:#16A34A;
+
+}
+
+/* Testlar */
+
+.tests{
+
+    background:linear-gradient(
+        135deg,
+        #FFFFFF 0%,
+        #FFF8DB 55%,
+        #FFE8A8 100%
+    );
+
+}
+
+.tests .feature-icon{
+
+    background:#FFF1C7;
+
+}
+
+.tests svg{
+
+    color:#D4A017;
+
+}
+
+/* Movies */
+
+.movies{
+
+    background:linear-gradient(
+        135deg,
+        #FFFFFF 0%,
+        #EFEAFF 55%,
+        #DDD2FF 100%
+    );
+
+}
+
+.movies .feature-icon{
+
+    background:#E4DDFF;
+
+}
+
+.movies svg{
+
+    color:#4338CA;
+
+}
+
+/* Daily Challenge */
+
+.challenge{
+
+    background:linear-gradient(
+        135deg,
+        #FFFFFF 0%,
+        #FFF2E8 55%,
+        #FFDCC8 100%
+    );
+
+}
+
+.challenge .feature-icon{
+
+    background:#FFE7D6;
+
+}
+
+.challenge svg{
+
+    color:#EA6A2A;
+
+}
