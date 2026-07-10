@@ -51,7 +51,7 @@ body{
     overflow:hidden;
 
     flex-shrink:0;
-
+transform: translateY(-3px);
 }
 
 .logo-box img{
