@@ -69,7 +69,7 @@ transform: translateY(-3px);
 
     display:flex;
     flex-direction:column;
-  
+  transform: translateX(-10px);
 }
 
 .header-content h1{
