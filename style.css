@@ -420,3 +420,108 @@ body{
     color:#EA6A2A;
 
 }
+/*====================================
+  BOTTOM NAVIGATION
+====================================*/
+
+.bottom-nav{
+
+    position:fixed;
+
+    left:16px;
+    right:16px;
+    bottom:16px;
+
+    height:68px;
+
+    display:flex;
+
+    justify-content:space-around;
+
+    align-items:center;
+
+    background:rgba(255,255,255,.82);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.6);
+
+    border-radius:22px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    z-index:1000;
+
+}
+
+.nav-item{
+
+    flex:1;
+
+    height:100%;
+
+    border:none;
+
+    background:transparent;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:4px;
+
+    cursor:pointer;
+
+    border-radius:18px;
+
+    transition:.25s ease;
+
+}
+
+.nav-item svg{
+
+    width:22px;
+
+    height:22px;
+
+    color:#9CA3AF;
+
+    transition:.25s ease;
+
+}
+
+.nav-item span{
+
+    font-size:11px;
+
+    font-weight:600;
+
+    color:#9CA3AF;
+
+    transition:.25s ease;
+
+}
+
+.nav-item.active{
+
+    background:rgba(255,255,255,.55);
+
+}
+
+.nav-item.active svg,
+.nav-item.active span{
+
+    color:#4338CA;
+
+}
+
+.nav-item:active{
+
+    transform:scale(.96);
+
+}
