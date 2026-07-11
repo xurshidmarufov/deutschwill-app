@@ -69,3 +69,69 @@ body{
     background:#22C55E;
     border-radius:50%;
 }
+/* ==========================
+   AI ORB
+========================== */
+
+.conversation-main{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:80vh;
+}
+
+.orb-container{
+    text-align:center;
+}
+
+.ai-orb{
+    width:200px;
+    height:200px;
+    margin:auto;
+    border-radius:50%;
+    background:linear-gradient(135deg,#7C5CFF,#5E8BFF);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:
+        0 20px 50px rgba(124,92,255,.35),
+        0 0 80px rgba(94,139,255,.25);
+
+    animation:orbBreath 3.5s ease-in-out infinite;
+}
+
+.orb-core{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    background:rgba(255,255,255,.22);
+    backdrop-filter:blur(10px);
+}
+
+.orb-text{
+    margin-top:34px;
+}
+
+.orb-text h3{
+    font-size:20px;
+    font-weight:700;
+    color:#222;
+}
+
+.orb-text p{
+    margin-top:8px;
+    font-size:14px;
+    color:#777;
+}
+
+@keyframes orbBreath{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.05);
+    }
+
+}
