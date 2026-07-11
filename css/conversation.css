@@ -1,1 +1,71 @@
-/* Conversation CSS */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#F8F9FC;
+}
+
+.conversation-container{
+    max-width:430px;
+    min-height:100vh;
+    margin:auto;
+    padding:20px;
+}
+
+.conversation-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.back-btn,
+.settings-btn{
+    width:44px;
+    height:44px;
+    border:none;
+    border-radius:50%;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.back-btn i,
+.settings-btn i{
+    width:20px;
+    height:20px;
+    color:#333;
+}
+
+.header-center{
+    text-align:center;
+}
+
+.header-center h2{
+    font-size:22px;
+    font-weight:700;
+    color:#1F1F1F;
+}
+
+.header-center p{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    margin-top:4px;
+    font-size:13px;
+    color:#777;
+}
+
+.online-dot{
+    width:8px;
+    height:8px;
+    background:#22C55E;
+    border-radius:50%;
+}
