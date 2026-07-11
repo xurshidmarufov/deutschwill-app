@@ -85,8 +85,8 @@ body{
 }
 
 .ai-orb{
-    width:200px;
-    height:200px;
+    width:180px;
+    height:180px;
     margin:auto;
     border-radius:50%;
     background:linear-gradient(135deg,#7C5CFF,#5E8BFF);
