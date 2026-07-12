@@ -118,45 +118,88 @@ body{
 }
 
 /* Yumshoq yorug'lik */
-
 .ai-orb::before{
 
     content:"";
 
     position:absolute;
 
-    width:150px;
-    height:150px;
+    width:260px;
+    height:260px;
+
+    top:-30px;
+    left:-30px;
 
     border-radius:50%;
 
-    background:rgba(255,255,255,.08);
+    background:
+    radial-gradient(circle,
+    rgba(124,92,255,.95) 0%,
+    rgba(110,184,255,.70) 45%,
+    rgba(200,241,255,.25) 75%,
+    transparent 100%);
 
-    filter:blur(12px);
+    filter:blur(22px);
+
+    animation:flowOne 12s ease-in-out infinite alternate;
 
 }
 
 /* Refleks */
-
 .ai-orb::after{
 
     content:"";
 
     position:absolute;
 
-    top:22px;
-    left:26px;
+    width:220px;
+    height:220px;
 
-    width:65px;
-    height:25px;
+    bottom:-20px;
+    right:-20px;
 
     border-radius:50%;
 
-    background:rgba(255,255,255,.45);
+    background:
+    radial-gradient(circle,
+    rgba(200,241,255,.55) 0%,
+    rgba(110,184,255,.35) 45%,
+    transparent 100%);
 
-    filter:blur(8px);
+    filter:blur(28px);
 
-    transform:rotate(-25deg);
+    animation:flowTwo 15s ease-in-out infinite alternate;
 
 }
 
+@keyframes flowOne{
+
+    0%{
+        transform:translate(-8px,-10px) scale(1);
+    }
+
+    50%{
+        transform:translate(10px,8px) scale(1.08);
+    }
+
+    100%{
+        transform:translate(-6px,12px) scale(1);
+    }
+
+}
+
+@keyframes flowTwo{
+
+    0%{
+        transform:translate(10px,8px) scale(1);
+    }
+
+    50%{
+        transform:translate(-10px,-8px) scale(1.10);
+    }
+
+    100%{
+        transform:translate(8px,-10px) scale(1);
+    }
+
+}
