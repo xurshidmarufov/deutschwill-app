@@ -69,28 +69,12 @@ body{
     background:#22C55E;
     border-radius:50%;
 }
-/* ==========================
-        DEUTSCH WILL ORB
-========================== */
-
-.conversation-main{
-    display:flex;
-    justify-content:center;
-    align-items:flex-start;
-    min-height:80vh;
-    padding-top:90px;
-}
-
-.orb-container{
-    text-align:center;
-}
-
 .ai-orb{
 
     position:relative;
 
-    width:200px;
-    height:200px;
+    width:220px;
+    height:220px;
 
     margin:auto;
 
@@ -98,32 +82,20 @@ body{
 
     overflow:hidden;
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    isolation:isolate;
 
-background:
-radial-gradient(circle at 28% 30%,
-rgba(124,92,255,.95) 0%,
-rgba(124,92,255,0) 34%),
+    background:
+    radial-gradient(circle at center,
+    #7C5CFF 0%,
+    #6E68FF 45%,
+    #6EB8FF 100%);
 
-radial-gradient(circle at 74% 28%,
-rgba(110,184,255,.85) 0%,
-rgba(110,184,255,0) 36%),
+    box-shadow:
+    0 0 45px rgba(124,92,255,.25),
+    0 0 90px rgba(110,184,255,.15);
 
-radial-gradient(circle at 68% 74%,
-rgba(200,241,255,.70) 0%,
-rgba(200,241,255,0) 28%),
-
-radial-gradient(circle at 30% 74%,
-rgba(95,110,255,.80) 0%,
-rgba(95,110,255,0) 35%),
-
-#6E6CFF;
 }
-    .ai-orb::before{
-
-    content:"";
+.orb-layer{
 
     position:absolute;
 
@@ -132,224 +104,63 @@ rgba(95,110,255,0) 35%),
 
     border-radius:50%;
 
-    background:radial-gradient(
-        circle,
-        rgba(255,255,255,.18) 0%,
-        rgba(255,255,255,.08) 40%,
-        transparent 75%
-    );
+    filter:blur(42px);
 
-    filter:blur(18px);
-
-    animation:floatLight 10s ease-in-out infinite alternate;
+    mix-blend-mode:screen;
 
 }
-/* Gradient Layers */
+.orb-purple{
 
-.gradient{
+    background:#7C5CFF;
 
-    position:absolute;
+    top:-20px;
+    left:-10px;
 
-    width:170px;
-    height:170px;
+}
+.orb-blue{
 
-    border-radius:50%;
+    background:#6EB8FF;
 
-    filter:blur(35px);
+    right:-15px;
+    top:10px;
+
+}
+.orb-cyan{
+
+    background:#C8F1FF;
+
+    left:25px;
+    bottom:-25px;
+
+    opacity:.55;
+
+}
+.orb-violet{
+
+    background:#5E52E8;
+
+    right:10px;
+    bottom:15px;
 
     opacity:.8;
 
 }
-.layer-1{
+.orb-glow{
 
- display:none;
+    position:absolute;
 
-}
-.layer-2{
+    inset:-22px;
 
-display:none;
+    border-radius:50%;
 
-}
+    background:
 
-/* Text */
+    radial-gradient(circle,
 
-.orb-text{
+    rgba(124,92,255,.28),
 
-    margin-top:32px;
+    rgba(110,184,255,.12),
 
-}
-
-.orb-text h3{
-
-    font-size:22px;
-    font-weight:700;
-    color:#222;
-
-}
-
-.orb-text p{
-
-    margin-top:8px;
-    font-size:14px;
-    color:#777;
-
-}
-
-/* Animations */
-@keyframes flowOne{
-
-    0%{
-
-        transform:
-        translate(-10px,-8px)
-        scale(1);
-
-    }
-
-    50%{
-
-        transform:
-        translate(8px,10px)
-        scale(1.08);
-
-    }
-
-    100%{
-
-        transform:
-        translate(-8px,6px)
-        scale(1);
-
-    }
-
-}
-
-@keyframes flowTwo{
-
-    0%{
-
-        transform:
-        translate(10px,8px)
-        scale(1.05);
-
-    }
-
-    50%{
-
-        transform:
-        translate(-10px,-8px)
-        scale(1);
-
-    }
-
-    100%{
-
-        transform:
-        translate(8px,-10px)
-        scale(1.06);
-
-    }
-
-}
-
-@keyframes orbBreath{
-
-    0%,100%{
-
-        transform:scale(1);
-
-    }
-
-    50%{
-
-        transform:scale(1.03);
-
-    }
-
-}
-@keyframes moveOne{
-
-    0%{
-        top:-20px;
-        left:-10px;
-        transform:scale(1);
-    }
-
-    25%{
-        top:0;
-        left:20px;
-    }
-
-    50%{
-        top:25px;
-        left:-5px;
-        transform:scale(1.15);
-    }
-
-    75%{
-        top:-10px;
-        left:35px;
-    }
-
-    100%{
-        top:10px;
-        left:10px;
-        transform:scale(1);
-    }
-
-}
-
-@keyframes moveTwo{
-
-    0%{
-        right:-20px;
-        bottom:-10px;
-        transform:scale(1);
-    }
-
-    25%{
-        right:10px;
-        bottom:25px;
-    }
-
-    50%{
-        right:35px;
-        bottom:0;
-        transform:scale(1.12);
-    }
-
-    75%{
-        right:5px;
-        bottom:35px;
-    }
-
-    100%{
-        right:20px;
-        bottom:15px;
-        transform:scale(1);
-    }
-
-}
-@keyframes floatLight{
-
-    0%{
-        transform:translate(-18px,-16px) scale(1);
-    }
-
-    25%{
-        transform:translate(12px,-8px) scale(1.08);
-    }
-
-    50%{
-        transform:translate(18px,14px) scale(.96);
-    }
-
-    75%{
-        transform:translate(-10px,20px) scale(1.05);
-    }
-
-    100%{
-        transform:translate(-20px,8px) scale(1);
-    }
+    transparent 72%);
 
 }
