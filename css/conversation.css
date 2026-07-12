@@ -116,16 +116,13 @@ body{
 
 .gradient{
 
+.gradient{
     position:absolute;
-
-    inset:-20%;
-
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
     border-radius:50%;
-
-    filter:blur(18px);
-
-    mix-blend-mode:screen;
-
 }
 
 .layer-1{
