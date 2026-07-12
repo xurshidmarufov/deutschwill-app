@@ -70,7 +70,7 @@ body{
     border-radius:50%;
 }
 /* ==========================
-        DEUTSCH WILL ORB
+        AI ORB
 ========================== */
 
 
@@ -87,7 +87,6 @@ body{
 }
 
 
-
 .orb-container{
 
     text-align:center;
@@ -97,7 +96,7 @@ body{
 
 
 /* ==========================
-        AI ORB
+        MAIN ORB
 ========================== */
 
 
@@ -118,14 +117,14 @@ body{
     border-radius:50%;
 
 
+    overflow:hidden;
+
+
     display:flex;
 
     justify-content:center;
 
     align-items:center;
-
-
-    overflow:hidden;
 
 
 
@@ -146,27 +145,23 @@ body{
     );
 
 
-    background-size:180% 180%;
+    background-size:200% 200%;
 
 
 
     box-shadow:
 
-
         0 20px 45px rgba(124,92,255,.35),
 
-
-        0 0 90px rgba(94,124,255,.30);
+        0 0 90px rgba(94,124,255,.35);
 
 
 
     animation:
 
+        orbMove 8s ease-in-out infinite alternate,
 
-        orbBreath 4s ease-in-out infinite,
-
-
-        backgroundMove 10s ease-in-out infinite alternate;
+        orbBreath 4s ease-in-out infinite;
 
 
 
@@ -175,7 +170,7 @@ body{
 
 
 /* ==========================
-        ROTATING COLOR FLOW
+        MOVING GRADIENT
 ========================== */
 
 
@@ -185,8 +180,7 @@ body{
     position:absolute;
 
 
-    inset:-25px;
-
+    inset:-30px;
 
 
     border-radius:50%;
@@ -214,23 +208,21 @@ body{
 
 
 
-    filter:blur(14px);
+    filter:blur(18px);
 
 
 
-    opacity:.85;
+    opacity:.75;
 
 
 
     animation:
 
-
-        rotateGradient 18s linear infinite;
+        rotateOrb 15s linear infinite;
 
 
 
     z-index:1;
-
 
 
 }
@@ -238,7 +230,7 @@ body{
 
 
 /* ==========================
-        INNER LIGHT
+        LIGHT EFFECT
 ========================== */
 
 
@@ -251,11 +243,9 @@ body{
     position:absolute;
 
 
+    width:130px;
 
-    width:140px;
-
-    height:140px;
-
+    height:130px;
 
 
     border-radius:50%;
@@ -264,12 +254,11 @@ body{
 
     background:
 
-
     radial-gradient(
 
         circle,
 
-        rgba(255,255,255,.20),
+        rgba(255,255,255,.25),
 
         transparent 70%
 
@@ -280,47 +269,15 @@ body{
     filter:blur(15px);
 
 
-
     z-index:2;
 
 
-
 }
 
 
 
 /* ==========================
-        PARTICLES
-========================== */
-
-
-.orb-particles{
-
-
-    position:absolute;
-
-
-    inset:0;
-
-
-
-    border-radius:50%;
-
-
-    overflow:hidden;
-
-
-
-    z-index:3;
-
-
-
-}
-
-
-
-/* ==========================
-        LIGHT REFLECTION
+        REFLECTION
 ========================== */
 
 
@@ -333,16 +290,15 @@ body{
     position:absolute;
 
 
+    top:25px;
 
-    top:22px;
-
-    left:26px;
-
+    left:35px;
 
 
-    width:65px;
 
-    height:25px;
+    width:55px;
+
+    height:22px;
 
 
 
@@ -352,12 +308,11 @@ body{
 
     background:
 
-
     rgba(255,255,255,.35);
 
 
 
-    filter:blur(10px);
+    filter:blur(8px);
 
 
 
@@ -365,8 +320,7 @@ body{
 
 
 
-    z-index:4;
-
+    z-index:3;
 
 
 }
@@ -380,76 +334,40 @@ body{
 
 .orb-text{
 
-
     margin-top:30px;
 
-
 }
-
 
 
 .orb-text h3{
 
-
     font-size:22px;
-
 
     font-weight:700;
 
-
     color:#222;
-
 
 }
 
 
-
 .orb-text p{
-
 
     margin-top:8px;
 
-
     color:#777;
 
-
     font-size:14px;
-
-
-    line-height:1.5;
-
 
 }
 
 
 
 /* ==========================
-        ANIMATIONS
+        ANIMATION
 ========================== */
 
 
-@keyframes orbBreath{
-
-
-    0%,100%{
-
-        transform:scale(1);
-
-    }
-
-
-    50%{
-
-        transform:scale(1.05);
-
-    }
-
-
-}
-
-
-
-@keyframes rotateGradient{
+@keyframes rotateOrb{
 
 
     from{
@@ -470,7 +388,7 @@ body{
 
 
 
-@keyframes backgroundMove{
+@keyframes orbMove{
 
 
     0%{
@@ -483,6 +401,27 @@ body{
     100%{
 
         background-position:100% 50%;
+
+    }
+
+
+}
+
+
+
+@keyframes orbBreath{
+
+
+    0%,100%{
+
+        transform:scale(1);
+
+    }
+
+
+    50%{
+
+        transform:scale(1.05);
 
     }
 
