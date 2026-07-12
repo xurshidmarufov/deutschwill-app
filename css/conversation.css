@@ -70,7 +70,7 @@ body{
     border-radius:50%;
 }
 /* ==========================
-   AI ORB
+   PREMIUM AI ORB
 ========================== */
 
 .conversation-main{
@@ -85,53 +85,136 @@ body{
 }
 
 .ai-orb{
+
+    position:relative;
+
     width:180px;
     height:180px;
+
     margin:auto;
+
     border-radius:50%;
-    background:linear-gradient(135deg,#7C5CFF,#5E8BFF);
+
     display:flex;
     align-items:center;
     justify-content:center;
+
+    overflow:hidden;
+
+    background:linear-gradient(
+        135deg,
+        #7C5CFF 0%,
+        #6F73FF 45%,
+        #5AA8FF 100%
+    );
+
     box-shadow:
-        0 20px 50px rgba(124,92,255,.35),
-        0 0 80px rgba(94,139,255,.25);
+        0 18px 45px rgba(124,92,255,.35),
+        0 0 70px rgba(90,168,255,.25),
+        inset 0 0 30px rgba(255,255,255,.12);
 
     animation:orbBreath 3.5s ease-in-out infinite;
+
+}
+
+/* Glass Reflection */
+
+.ai-orb::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:18px;
+    left:22px;
+
+    width:70px;
+    height:28px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.45);
+
+    filter:blur(8px);
+
+    transform:rotate(-25deg);
+
+}
+
+/* Outer Glow */
+
+.ai-orb::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-18px;
+
+    border-radius:50%;
+
+    background:radial-gradient(
+        rgba(124,92,255,.20),
+        transparent 72%
+    );
+
+    z-index:-1;
+
 }
 
 .orb-core{
-    width:90px;
-    height:90px;
+
+    width:95px;
+    height:95px;
+
     border-radius:50%;
-    background:rgba(255,255,255,.22);
-    backdrop-filter:blur(10px);
+
+    background:rgba(255,255,255,.18);
+
+    border:1px solid rgba(255,255,255,.22);
+
+    backdrop-filter:blur(18px);
+
+    z-index:2;
+
 }
 
 .orb-text{
+
     margin-top:34px;
+
 }
 
 .orb-text h3{
+
     font-size:20px;
     font-weight:700;
     color:#222;
+
 }
 
 .orb-text p{
+
     margin-top:8px;
+
     font-size:14px;
+
     color:#777;
+
 }
 
 @keyframes orbBreath{
 
     0%,100%{
+
         transform:scale(1);
+
     }
 
     50%{
+
         transform:scale(1.05);
+
     }
 
 }
