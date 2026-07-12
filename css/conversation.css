@@ -69,98 +69,34 @@ body{
     background:#22C55E;
     border-radius:50%;
 }
-.ai-orb{
+/* ==========================
+        AI ORB LAYOUT
+========================== */
 
-    position:relative;
-
-    width:220px;
-    height:220px;
-
-    margin:auto;
-
-    border-radius:50%;
-
-    overflow:hidden;
-
-    isolation:isolate;
-
-    background:
-    radial-gradient(circle at center,
-    #7C5CFF 0%,
-    #6E68FF 45%,
-    #6EB8FF 100%);
-
-    box-shadow:
-    0 0 45px rgba(124,92,255,.25),
-    0 0 90px rgba(110,184,255,.15);
-
+.conversation-main{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:75vh;
 }
-.orb-layer{
 
-    position:absolute;
-
-    width:150px;
-    height:150px;
-
-    border-radius:50%;
-
-    filter:blur(42px);
-
-    mix-blend-mode:screen;
-
+.orb-container{
+    text-align:center;
 }
-.orb-purple{
 
-    background:#7C5CFF;
-
-    top:-20px;
-    left:-10px;
-
+.orb-text{
+    margin-top:28px;
 }
-.orb-blue{
 
-    background:#6EB8FF;
-
-    right:-15px;
-    top:10px;
-
+.orb-text h3{
+    font-size:22px;
+    font-weight:700;
+    color:#1F1F1F;
 }
-.orb-cyan{
 
-    background:#C8F1FF;
-
-    left:25px;
-    bottom:-25px;
-
-    opacity:.55;
-
-}
-.orb-violet{
-
-    background:#5E52E8;
-
-    right:10px;
-    bottom:15px;
-
-    opacity:.8;
-
-}
-.orb-glow{
-
-    position:absolute;
-
-    inset:-22px;
-
-    border-radius:50%;
-
-    background:
-
-    radial-gradient(circle,
-
-    rgba(124,92,255,.28),
-
-    rgba(110,184,255,.12),
-
-    transparent 72%);
-
+.orb-text p{
+    margin-top:8px;
+    font-size:14px;
+    color:#777;
+    line-height:1.5;
 }
