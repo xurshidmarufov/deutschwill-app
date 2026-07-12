@@ -70,14 +70,15 @@ body{
     border-radius:50%;
 }
 /* ==========================
-   PREMIUM AI ORB
+        DEUTSCH WILL ORB
 ========================== */
 
 .conversation-main{
     display:flex;
     justify-content:center;
-    align-items:center;
+    align-items:flex-start;
     min-height:80vh;
+    padding-top:45px;
 }
 
 .orb-container{
@@ -96,28 +97,27 @@ body{
     border-radius:50%;
 
     display:flex;
-    align-items:center;
     justify-content:center;
+    align-items:center;
 
     overflow:hidden;
 
-    background:linear-gradient(
-        135deg,
-        #7C5CFF 0%,
-        #6F73FF 45%,
-        #5AA8FF 100%
-    );
+    background:
+    radial-gradient(circle at 30% 30%,
+    #9B8CFF 0%,
+    #7C5CFF 35%,
+    #5E7CFF 70%,
+    #4F46E5 100%);
 
     box-shadow:
-        0 18px 45px rgba(124,92,255,.35),
-        0 0 70px rgba(90,168,255,.25),
-        inset 0 0 30px rgba(255,255,255,.12);
+        0 20px 45px rgba(124,92,255,.28),
+        0 0 80px rgba(94,124,255,.18);
 
-    animation:orbBreath 3.5s ease-in-out infinite;
+    animation:orbBreath 4s ease-in-out infinite;
 
 }
 
-/* Glass Reflection */
+/* Yumshoq yorug'lik */
 
 .ai-orb::before{
 
@@ -125,11 +125,30 @@ body{
 
     position:absolute;
 
-    top:18px;
-    left:22px;
+    width:150px;
+    height:150px;
 
-    width:70px;
-    height:28px;
+    border-radius:50%;
+
+    background:rgba(255,255,255,.08);
+
+    filter:blur(12px);
+
+}
+
+/* Refleks */
+
+.ai-orb::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:22px;
+    left:26px;
+
+    width:65px;
+    height:25px;
 
     border-radius:50%;
 
@@ -141,54 +160,40 @@ body{
 
 }
 
-/* Outer Glow */
-
-.ai-orb::after{
-
-    content:"";
-
-    position:absolute;
-
-    inset:-18px;
-
-    border-radius:50%;
-
-    background:radial-gradient(
-        rgba(124,92,255,.20),
-        transparent 72%
-    );
-
-    z-index:-1;
-
-}
+/* Glass Core */
 
 .orb-core{
 
-    width:95px;
-    height:95px;
+    width:90px;
+    height:90px;
 
     border-radius:50%;
 
-    background:rgba(255,255,255,.18);
+    background:rgba(255,255,255,.14);
 
-    border:1px solid rgba(255,255,255,.22);
+    border:1px solid rgba(255,255,255,.25);
 
-    backdrop-filter:blur(18px);
+    backdrop-filter:blur(20px);
 
-    z-index:2;
+    box-shadow:
+        inset 0 0 18px rgba(255,255,255,.18);
 
 }
 
+/* Matn */
+
 .orb-text{
 
-    margin-top:34px;
+    margin-top:30px;
 
 }
 
 .orb-text h3{
 
-    font-size:20px;
+    font-size:22px;
+
     font-weight:700;
+
     color:#222;
 
 }
@@ -197,11 +202,15 @@ body{
 
     margin-top:8px;
 
-    font-size:14px;
-
     color:#777;
 
+    font-size:14px;
+
+    line-height:1.5;
+
 }
+
+/* Nafas olish */
 
 @keyframes orbBreath{
 
@@ -213,7 +222,7 @@ body{
 
     50%{
 
-        transform:scale(1.05);
+        transform:scale(1.04);
 
     }
 
