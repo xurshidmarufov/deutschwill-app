@@ -17,54 +17,70 @@
 
 <body>
 
-    <div class="conversation-container">
+<div class="conversation-container">
 
-        <!-- Header -->
-        <header class="conversation-header">
+    <!-- Header -->
+    <header class="conversation-header">
 
-            <button class="back-btn">
-                <i data-lucide="arrow-left"></i>
-            </button>
+        <button class="back-btn">
+            <i data-lucide="arrow-left"></i>
+        </button>
 
-            <div class="header-center">
-                <h2>Will</h2>
-                <p>
-                    <span class="online-dot"></span>
-                    Online
-                </p>
+        <div class="header-center">
+            <h2>Will</h2>
+            <p>
+                <span class="online-dot"></span>
+                Online
+            </p>
+        </div>
+
+        <button class="settings-btn">
+            <i data-lucide="ellipsis"></i>
+        </button>
+
+    </header>
+
+    <!-- AI Conversation -->
+    <main class="conversation-main">
+
+        <div class="orb-container">
+
+            <!-- AI Orb -->
+            <div class="ai-orb">
+                <div class="orb-core"></div>
             </div>
 
-            <button class="settings-btn">
-                <i data-lucide="ellipsis"></i>
-            </button>
+            <!-- Intro -->
+            <div class="orb-text">
+                <h3>Sprich mit Will.</h3>
+                <p>🇺🇿 Mikrofonni bosing va suhbatni boshlang.</p>
+            </div>
 
-        </header>
+            <!-- Subtitle -->
+            <div class="subtitle-box">
 
-        <!-- AI Orb -->
-        <main class="conversation-main">
+                <p class="german"></p>
 
-            <div class="orb-container">
-
-                <div class="ai-orb">
-                    <div class="orb-core"></div>
-                </div>
-
-                <div class="orb-text">
-                    <h3>Sprich mit Will.</h3>
-                    <p>Mikrofonni bosib suhbatni boshlang.</p>
-                </div>
+                <p class="uzbek"></p>
 
             </div>
 
-        </main>
+            <!-- Microphone -->
+            <button class="mic-btn">
+                <i data-lucide="mic"></i>
+            </button>
 
-    </div>
+        </div>
 
-    <script src="../js/conversation.js"></script>
+    </main>
 
-    <script>
-        lucide.createIcons();
-    </script>
+</div>
+
+<script>
+    lucide.createIcons();
+</script>
+
+<script src="../js/conversation.js"></script>
 
 </body>
 </html>
