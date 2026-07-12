@@ -120,7 +120,30 @@ rgba(95,110,255,.80) 0%,
 rgba(95,110,255,0) 35%),
 
 #6E6CFF;
+}
+    .ai-orb::before{
 
+    content:"";
+
+    position:absolute;
+
+    width:150px;
+    height:150px;
+
+    border-radius:50%;
+
+    background:radial-gradient(
+        circle,
+        rgba(255,255,255,.18) 0%,
+        rgba(255,255,255,.08) 40%,
+        transparent 75%
+    );
+
+    filter:blur(18px);
+
+    animation:floatLight 10s ease-in-out infinite alternate;
+
+}
 /* Gradient Layers */
 
 .gradient{
@@ -304,6 +327,29 @@ display:none;
         right:20px;
         bottom:15px;
         transform:scale(1);
+    }
+
+}
+@keyframes floatLight{
+
+    0%{
+        transform:translate(-18px,-16px) scale(1);
+    }
+
+    25%{
+        transform:translate(12px,-8px) scale(1.08);
+    }
+
+    50%{
+        transform:translate(18px,14px) scale(.96);
+    }
+
+    75%{
+        transform:translate(-10px,20px) scale(1.05);
+    }
+
+    100%{
+        transform:translate(-20px,8px) scale(1);
     }
 
 }
