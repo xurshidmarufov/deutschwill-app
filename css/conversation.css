@@ -163,7 +163,8 @@ body{
 /* Glass Core */
 
 .orb-core{
-
+position:relative;
+z-index:3;
     width:90px;
     height:90px;
 
@@ -224,6 +225,59 @@ body{
 
         transform:scale(1.04);
 
+    }
+
+}
+/* ==========================
+      ORB GRADIENT
+========================== */
+
+.orb-gradient{
+
+    position:absolute;
+    inset:0;
+
+    border-radius:50%;
+
+    background:conic-gradient(
+        from 0deg,
+        #8B5CF6,
+        #6D5CFF,
+        #4F8FFF,
+        #38BDF8,
+        #8B5CF6
+    );
+
+    filter:blur(10px);
+
+    animation:rotateGradient 18s linear infinite;
+
+    z-index:1;
+
+}
+
+.orb-particles{
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    z-index:2;
+
+}
+
+@keyframes rotateGradient{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
     }
 
 }
