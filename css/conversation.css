@@ -115,54 +115,37 @@ body{
 /* Gradient Layers */
 
 .gradient{
+
     position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
+
+    width:170px;
+    height:170px;
+
     border-radius:50%;
+
+    filter:blur(35px);
+
+    opacity:.8;
+
 }
 .layer-1{
 
-    background:
-    radial-gradient(circle at 30% 30%,
-    #C8F1FF 0%,
-    transparent 22%),
+    background:#7C5CFF;
 
-    radial-gradient(circle at 70% 70%,
-    rgba(110,184,255,.55) 0%,
-    transparent 35%),
+    top:-20px;
+    left:-10px;
 
-    radial-gradient(circle at 45% 45%,
-    #7C5CFF 0%,
-    #8B6CFF 35%,
-    #6EB8FF 100%);
-
-    filter:blur(10px);
-
-    animation:flowOne 14s ease-in-out infinite alternate;
+    animation:moveOne 14s ease-in-out infinite alternate;
 
 }
 .layer-2{
 
-    background:
-    radial-gradient(circle at 75% 25%,
-    rgba(200,241,255,.75),
-    transparent 22%),
+    background:#6EB8FF;
 
-    radial-gradient(circle at 25% 80%,
-    rgba(124,92,255,.55),
-    transparent 35%),
+    right:-20px;
+    bottom:-10px;
 
-    radial-gradient(circle at 55% 55%,
-    #6EB8FF,
-    #7C5CFF);
-
-    opacity:.65;
-
-    filter:blur(18px);
-
-    animation:flowTwo 18s ease-in-out infinite alternate;
+    animation:moveTwo 17s ease-in-out infinite alternate;
 
 }
 
@@ -259,6 +242,69 @@ body{
 
         transform:scale(1.03);
 
+    }
+
+}
+@keyframes moveOne{
+
+    0%{
+        top:-20px;
+        left:-10px;
+        transform:scale(1);
+    }
+
+    25%{
+        top:0;
+        left:20px;
+    }
+
+    50%{
+        top:25px;
+        left:-5px;
+        transform:scale(1.15);
+    }
+
+    75%{
+        top:-10px;
+        left:35px;
+    }
+
+    100%{
+        top:10px;
+        left:10px;
+        transform:scale(1);
+    }
+
+}
+
+@keyframes moveTwo{
+
+    0%{
+        right:-20px;
+        bottom:-10px;
+        transform:scale(1);
+    }
+
+    25%{
+        right:10px;
+        bottom:25px;
+    }
+
+    50%{
+        right:35px;
+        bottom:0;
+        transform:scale(1.12);
+    }
+
+    75%{
+        right:5px;
+        bottom:35px;
+    }
+
+    100%{
+        right:20px;
+        bottom:15px;
+        transform:scale(1);
     }
 
 }
