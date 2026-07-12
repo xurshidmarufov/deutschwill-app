@@ -129,20 +129,14 @@ radial-gradient(circle at center,
 
     background:#7C5CFF;
 
-    top:-20px;
-    left:-10px;
-
-    animation:moveOne 14s ease-in-out infinite alternate;
+    opacity:.55;
 
 }
 .layer-2{
 
     background:#6EB8FF;
 
-    right:-20px;
-    bottom:-10px;
-
-    animation:moveTwo 17s ease-in-out infinite alternate;
+    opacity:.45;
 
 }
 
