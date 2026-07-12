@@ -100,3 +100,119 @@ body{
     color:#777;
     line-height:1.5;
 }
+/* ==========================
+      AI ORB - PART 1
+========================== */
+
+.conversation-main{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-height:75vh;
+
+}
+
+.orb-container{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+.ai-orb{
+
+    position:relative;
+
+    width:220px;
+
+    height:220px;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    isolation:isolate;
+
+    background:transparent;
+
+}
+
+.orb-svg{
+
+    width:100%;
+
+    height:100%;
+
+    display:block;
+
+}
+/* ==========================
+      AI ORB - PART 2
+========================== */
+
+/* Glass Reflection */
+
+.ai-orb::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:18px;
+    left:28px;
+
+    width:78px;
+    height:42px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.20);
+
+    filter:blur(14px);
+
+    transform:rotate(-25deg);
+
+    z-index:20;
+
+    pointer-events:none;
+
+}
+
+/* Outer Halo */
+
+.ai-orb::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-22px;
+
+    border-radius:50%;
+
+    background:radial-gradient(
+
+        circle,
+
+        rgba(124,92,255,.30) 0%,
+
+        rgba(110,184,255,.18) 45%,
+
+        transparent 75%
+
+    );
+
+    filter:blur(22px);
+
+    z-index:-1;
+
+    pointer-events:none;
+
+}
