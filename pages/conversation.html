@@ -44,27 +44,72 @@
 
     <div class="orb-container">
 
-        <!-- AI Orb -->
-        <div class="ai-orb">
+      <div class="ai-orb">
 
-            <div class="orb-layer orb-purple"></div>
+    <svg class="orb-svg" viewBox="0 0 220 220">
 
-            <div class="orb-layer orb-blue"></div>
+        <defs>
 
-            <div class="orb-layer orb-cyan"></div>
+            <filter id="goo">
 
-            <div class="orb-layer orb-violet"></div>
+                <feGaussianBlur
+                    in="SourceGraphic"
+                    stdDeviation="18"
+                    result="blur"/>
 
-            <div class="orb-glow"></div>
+                <feColorMatrix
+                    in="blur"
+                    mode="matrix"
+                    values="
+                    1 0 0 0 0
+                    0 1 0 0 0
+                    0 0 1 0 0
+                    0 0 0 22 -10"
+                    result="goo"/>
 
-        </div>
+                <feBlend
+                    in="SourceGraphic"
+                    in2="goo"/>
 
-      
+            </filter>
 
-    </div>
+        </defs>
 
-</main>
+        <g filter="url(#goo)">
 
+            <circle
+                class="blob blob-purple"
+                cx="70"
+                cy="60"
+                r="42"/>
+
+            <circle
+                class="blob blob-blue"
+                cx="155"
+                cy="70"
+                r="42"/>
+
+            <circle
+                class="blob blob-cyan"
+                cx="150"
+                cy="155"
+                r="34"/>
+
+            <circle
+                class="blob blob-violet"
+                cx="70"
+                cy="150"
+                r="38"/>
+
+        </g>
+
+    </svg>
+
+    <div class="orb-glass"></div>
+
+    <div class="orb-halo"></div>
+
+</div>
             <!-- Intro -->
             <div class="orb-text">
                 <h3>Sprich mit Will.</h3>
