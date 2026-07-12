@@ -122,34 +122,47 @@ body{
     height:100%;
     border-radius:50%;
 }
-
 .layer-1{
 
-    background:conic-gradient(
-        from 0deg,
-        #7C5CFF,
-        #9B8CFF,
-        #6EB8FF,
-        #7C5CFF
-    );
+    background:
+    radial-gradient(circle at 30% 30%,
+    #C8F1FF 0%,
+    transparent 22%),
 
-    animation:rotateOne 20s linear infinite;
+    radial-gradient(circle at 70% 70%,
+    rgba(110,184,255,.55) 0%,
+    transparent 35%),
+
+    radial-gradient(circle at 45% 45%,
+    #7C5CFF 0%,
+    #8B6CFF 35%,
+    #6EB8FF 100%);
+
+    filter:blur(10px);
+
+    animation:flowOne 14s ease-in-out infinite alternate;
 
 }
-
 .layer-2{
 
-    background:conic-gradient(
-        from 180deg,
-        #6EB8FF,
-        #C8F1FF,
-        #7C5CFF,
-        #6EB8FF
-    );
+    background:
+    radial-gradient(circle at 75% 25%,
+    rgba(200,241,255,.75),
+    transparent 22%),
 
-    opacity:.75;
+    radial-gradient(circle at 25% 80%,
+    rgba(124,92,255,.55),
+    transparent 35%),
 
-    animation:rotateTwo 28s linear infinite reverse;
+    radial-gradient(circle at 55% 55%,
+    #6EB8FF,
+    #7C5CFF);
+
+    opacity:.65;
+
+    filter:blur(18px);
+
+    animation:flowTwo 18s ease-in-out infinite alternate;
 
 }
 
@@ -178,34 +191,57 @@ body{
 }
 
 /* Animations */
+@keyframes flowOne{
 
-@keyframes rotateOne{
+    0%{
 
-    from{
-
-        transform:rotate(0deg);
+        transform:
+        translate(-10px,-8px)
+        scale(1);
 
     }
 
-    to{
+    50%{
 
-        transform:rotate(360deg);
+        transform:
+        translate(8px,10px)
+        scale(1.08);
+
+    }
+
+    100%{
+
+        transform:
+        translate(-8px,6px)
+        scale(1);
 
     }
 
 }
 
-@keyframes rotateTwo{
+@keyframes flowTwo{
 
-    from{
+    0%{
 
-        transform:rotate(0deg);
+        transform:
+        translate(10px,8px)
+        scale(1.05);
 
     }
 
-    to{
+    50%{
 
-        transform:rotate(-360deg);
+        transform:
+        translate(-10px,-8px)
+        scale(1);
+
+    }
+
+    100%{
+
+        transform:
+        translate(8px,-10px)
+        scale(1.06);
 
     }
 
