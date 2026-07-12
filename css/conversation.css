@@ -103,11 +103,23 @@ body{
     align-items:center;
 
 background:
-radial-gradient(circle at center,
-#8A78FF 0%,
-#7C5CFF 45%,
-#6EB8FF 100%);
-}
+radial-gradient(circle at 28% 30%,
+rgba(124,92,255,.95) 0%,
+rgba(124,92,255,0) 34%),
+
+radial-gradient(circle at 74% 28%,
+rgba(110,184,255,.85) 0%,
+rgba(110,184,255,0) 36%),
+
+radial-gradient(circle at 68% 74%,
+rgba(200,241,255,.70) 0%,
+rgba(200,241,255,0) 28%),
+
+radial-gradient(circle at 30% 74%,
+rgba(95,110,255,.80) 0%,
+rgba(95,110,255,0) 35%),
+
+#6E6CFF;
 
 /* Gradient Layers */
 
@@ -127,16 +139,12 @@ radial-gradient(circle at center,
 }
 .layer-1{
 
-    background:#7C5CFF;
-
-    opacity:.55;
+ display:none;
 
 }
 .layer-2{
 
-    background:#6EB8FF;
-
-    opacity:.45;
+display:none;
 
 }
 
