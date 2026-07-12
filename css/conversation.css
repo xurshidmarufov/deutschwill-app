@@ -84,36 +84,36 @@ body{
 .orb-container{
     text-align:center;
 }
-
 .ai-orb{
 
     position:relative;
 
-    width:180px;
-    height:180px;
+    width:200px;
+    height:200px;
 
     margin:auto;
 
     border-radius:50%;
 
+    overflow:hidden;
+
     display:flex;
     justify-content:center;
     align-items:center;
 
-    overflow:hidden;
-
-    background:
-    radial-gradient(circle at 30% 30%,
-    #9B8CFF 0%,
-    #7C5CFF 35%,
-    #5E7CFF 70%,
-    #4F46E5 100%);
+    background:linear-gradient(
+        135deg,
+        #7C5CFF 0%,
+        #6E74FF 40%,
+        #6EB8FF 100%
+    );
 
     box-shadow:
-        0 20px 45px rgba(124,92,255,.28),
-        0 0 80px rgba(94,124,255,.18);
+        0 0 35px rgba(124,92,255,.30),
+        0 0 90px rgba(110,184,255,.22),
+        0 25px 60px rgba(124,92,255,.18);
 
-    animation:orbBreath 4s ease-in-out infinite;
+    animation:orbBreath 5s ease-in-out infinite;
 
 }
 
