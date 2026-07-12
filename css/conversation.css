@@ -102,14 +102,11 @@ body{
     justify-content:center;
     align-items:center;
 
-    background:#6F73FF;
-
-    box-shadow:
-        0 20px 45px rgba(124,92,255,.22),
-        0 0 90px rgba(110,184,255,.18);
-
-    animation:orbBreath 5s ease-in-out infinite;
-
+background:
+radial-gradient(circle at center,
+#8A78FF 0%,
+#7C5CFF 45%,
+#6EB8FF 100%);
 }
 
 /* Gradient Layers */
