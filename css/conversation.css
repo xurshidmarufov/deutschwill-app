@@ -198,3 +198,76 @@ body{
     z-index:-1;
 
 }
+/* ==========================
+      DEUTSCH WILL ORB
+      PART 3
+========================== */
+
+.purple{
+    animation:movePurple 10s ease-in-out infinite alternate;
+}
+
+.blue{
+    animation:moveBlue 12s ease-in-out infinite alternate;
+}
+
+.cyan{
+    animation:moveCyan 9s ease-in-out infinite alternate;
+}
+
+.violet{
+    animation:moveViolet 14s ease-in-out infinite alternate;
+}
+
+.orb-halo{
+    animation:haloPulse 5s ease-in-out infinite;
+}
+
+@keyframes movePurple{
+    0%{
+        transform:translate(0,0) scale(1);
+    }
+    100%{
+        transform:translate(24px,18px) scale(1.18);
+    }
+}
+
+@keyframes moveBlue{
+    0%{
+        transform:translate(0,0) scale(1);
+    }
+    100%{
+        transform:translate(-22px,-18px) scale(1.15);
+    }
+}
+
+@keyframes moveCyan{
+    0%{
+        transform:translate(0,0) scale(.9);
+        opacity:.45;
+    }
+    100%{
+        transform:translate(-18px,20px) scale(1.25);
+        opacity:.8;
+    }
+}
+
+@keyframes moveViolet{
+    0%{
+        transform:translate(0,0) scale(1);
+    }
+    100%{
+        transform:translate(18px,-20px) scale(1.12);
+    }
+}
+
+@keyframes haloPulse{
+    0%,100%{
+        transform:scale(1);
+        opacity:.65;
+    }
+    50%{
+        transform:scale(1.08);
+        opacity:1;
+    }
+}
