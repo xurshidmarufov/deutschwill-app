@@ -99,17 +99,21 @@ function updateBlobs(){
 
     t += 0.008;
 
-    blobs[0].x = 110 + Math.cos(t * 1.0) * 45;
-    blobs[0].y = 110 + Math.sin(t * 1.2) * 35;
+    blobs[0].x = 110 + Math.cos(t*0.8) * 55 + Math.sin(t*2.2) * 12;
+    blobs[0].y = 110 + Math.sin(t*1.3) * 42 + Math.cos(t*1.7) * 10;
+    blobs[0].r = 120 + Math.sin(t*1.4) * 14;
 
-    blobs[1].x = 110 + Math.cos(t * 0.9 + 2) * 42;
-    blobs[1].y = 110 + Math.sin(t * 1.1 + 2) * 40;
+    blobs[1].x = 110 + Math.sin(t*1.1+2) * 48 + Math.cos(t*2.5) * 14;
+    blobs[1].y = 110 + Math.cos(t*0.9+1) * 50 + Math.sin(t*1.8) * 12;
+    blobs[1].r = 115 + Math.cos(t*1.2) * 16;
 
-    blobs[2].x = 110 + Math.cos(t * 1.1 + 4) * 38;
-    blobs[2].y = 110 + Math.sin(t * 0.9 + 4) * 42;
+    blobs[2].x = 110 + Math.cos(t*1.5+4) * 44 + Math.sin(t*2.7) * 16;
+    blobs[2].y = 110 + Math.sin(t*0.7+3) * 56 + Math.cos(t*2.1) * 10;
+    blobs[2].r = 118 + Math.sin(t*1.6) * 12;
 
-    blobs[3].x = 110 + Math.cos(t * 1.2 + 6) * 40;
-    blobs[3].y = 110 + Math.sin(t * 1.0 + 6) * 38;
+    blobs[3].x = 110 + Math.sin(t*0.6+5) * 60 + Math.cos(t*2.3) * 10;
+    blobs[3].y = 110 + Math.cos(t*1.4+2) * 40 + Math.sin(t*2.8) * 15;
+    blobs[3].r = 122 + Math.cos(t*1.8) * 14;
 
 }
 
