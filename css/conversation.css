@@ -109,3 +109,92 @@ body{
         0 0 70px rgba(110,184,255,.15);
 
 }
+/* ==========================
+      DEUTSCH WILL ORB
+      PART 2
+========================== */
+
+.orb-color{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    filter:blur(42px);
+
+    mix-blend-mode:screen;
+
+    opacity:.9;
+
+}
+
+.purple{
+
+    width:140px;
+    height:140px;
+
+    background:#7C5CFF;
+
+    top:-25px;
+    left:-15px;
+
+}
+
+.blue{
+
+    width:150px;
+    height:150px;
+
+    background:#6EB8FF;
+
+    bottom:-30px;
+    right:-20px;
+
+}
+
+.cyan{
+
+    width:90px;
+    height:90px;
+
+    background:#C8F1FF;
+
+    top:35px;
+    right:25px;
+
+    opacity:.55;
+
+}
+
+.violet{
+
+    width:110px;
+    height:110px;
+
+    background:#5E52E8;
+
+    bottom:30px;
+    left:20px;
+
+    opacity:.75;
+
+}
+
+.orb-halo{
+
+    position:absolute;
+
+    inset:-22px;
+
+    border-radius:50%;
+
+    background:radial-gradient(circle,
+        rgba(124,92,255,.22) 0%,
+        rgba(110,184,255,.12) 55%,
+        transparent 75%);
+
+    filter:blur(20px);
+
+    z-index:-1;
+
+}
