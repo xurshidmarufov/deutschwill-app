@@ -1,3 +1,4 @@
+alert("YANGI JS ISHLADI");
 const canvas = document.getElementById("orbCanvas");
 const ctx = canvas.getContext("2d");
 
