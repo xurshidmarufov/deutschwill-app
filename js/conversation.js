@@ -61,13 +61,13 @@ function drawBlob(blob){
     );
 
     gradient.addColorStop(0.00, blob.color);
-    gradient.addColorStop(0.40, blob.color);
-    gradient.addColorStop(0.75, blob.color + "66");
+    gradient.addColorStop(0.55, blob.color);
+    gradient.addColorStop(0.82, blob.color + "55");
     gradient.addColorStop(1.00, "rgba(0,0,0,0)");
 
     ctx.save();
 
-    ctx.globalCompositeOperation = "screen";
+    ctx.globalCompositeOperation = "lighter";
 
     ctx.translate(blob.x, blob.y);
 
