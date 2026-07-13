@@ -12,37 +12,37 @@ const blobs = [
     {
         x:70,
         y:70,
-        r:95,
+        r:120,
         color:"#7C5CFF",
-        vx:0.28,
-        vy:0.22
+        time:12.4,
+        speed:0.0052
     },
 
     {
         x:150,
         y:70,
-        r:90,
-        color:"#6EB8FF",
-        vx:-0.24,
-        vy:0.26
+        r:115,
+        color:"#3B82F6",
+        time:36.8,
+        speed:0.0044
     },
 
     {
         x:150,
         y:150,
-        r:85,
+        r:118,
         color:"#8A6BFF",
-        vx:-0.22,
-        vy:-0.20
+        time:71.2,
+        speed:0.0061
     },
 
     {
         x:70,
         y:150,
-        r:88,
-        color:"#6EB8FF",
-        vx:0.25,
-        vy:-0.24
+        r:122,
+        color:"#2563EB",
+        time:103.7,
+        speed:0.0048
     }
 
 ];
@@ -93,27 +93,27 @@ function render(){
 
 render();
 
-let t = 0;
-
 function updateBlobs(){
 
-    t += 0.008;
+    for(const blob of blobs){
 
-    blobs[0].x = 110 + Math.cos(t*0.8) * 55 + Math.sin(t*2.2) * 12;
-    blobs[0].y = 110 + Math.sin(t*1.3) * 42 + Math.cos(t*1.7) * 10;
-    blobs[0].r = 120 + Math.sin(t*1.4) * 14;
+        blob.time += blob.speed;
 
-    blobs[1].x = 110 + Math.sin(t*1.1+2) * 48 + Math.cos(t*2.5) * 14;
-    blobs[1].y = 110 + Math.cos(t*0.9+1) * 50 + Math.sin(t*1.8) * 12;
-    blobs[1].r = 115 + Math.cos(t*1.2) * 16;
+        blob.x =
+            110 +
+            Math.cos(blob.time * 1.37) * 42 +
+            Math.sin(blob.time * 2.41) * 18;
 
-    blobs[2].x = 110 + Math.cos(t*1.5+4) * 44 + Math.sin(t*2.7) * 16;
-    blobs[2].y = 110 + Math.sin(t*0.7+3) * 56 + Math.cos(t*2.1) * 10;
-    blobs[2].r = 118 + Math.sin(t*1.6) * 12;
+        blob.y =
+            110 +
+            Math.sin(blob.time * 1.11) * 46 +
+            Math.cos(blob.time * 1.93) * 16;
 
-    blobs[3].x = 110 + Math.sin(t*0.6+5) * 60 + Math.cos(t*2.3) * 10;
-    blobs[3].y = 110 + Math.cos(t*1.4+2) * 40 + Math.sin(t*2.8) * 15;
-    blobs[3].r = 122 + Math.cos(t*1.8) * 14;
+        blob.r =
+            118 +
+            Math.sin(blob.time * 2.2) * 10;
+
+    }
 
 }
 
