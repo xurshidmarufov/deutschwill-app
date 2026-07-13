@@ -1,141 +1,179 @@
-canvas = document.getElementById("orbCanvas");
-const ctx = canvas.getContext("2d");
+document.addEventListener("DOMContentLoaded", () => {
 
-const SIZE = 200;
+    const canvas = document.getElementById("orbCanvas");
 
-canvas.width = SIZE;
-canvas.height = SIZE;
+    // Canvas bo'lmasa JS hech narsani buzmaydi
+    if (!canvas) return;
 
-const CENTER = SIZE / 2;
 
-const blobs = [
+    const ctx = canvas.getContext("2d");
 
-    {
-        color:"#7C5CFF",
-        x:70,
-        y:70,
-        radius:220,
-        angle:0,
-        speed:0.0038
-    },
 
-    {
-        color:"#3B82F6",
-        x:150,
-        y:70,
-        radius:200,
-        angle:1.8,
-        speed:0.0045
-    },
+    const SIZE = 200;
 
-    {
-        color:"#8B5CF6",
-        x:150,
-        y:150,
-        radius:205,
-        angle:3.7,
-        speed:0.0032
-    },
+    canvas.width = SIZE;
+    canvas.height = SIZE;
 
-    {
-        color:"#2563EB",
-        x:70,
-        y:150,
-        radius:220,
-        angle:5.4,
-        speed:0.0041
+
+
+    let time = 0;
+
+
+
+    const blobs = [
+
+        {
+            color:"#9B8CFF",
+            angle:0,
+            speed:0.010,
+            distance:25,
+            radius:105
+        },
+
+        {
+            color:"#7C5CFF",
+            angle:2,
+            speed:0.008,
+            distance:30,
+            radius:110
+        },
+
+        {
+            color:"#5E7CFF",
+            angle:4,
+            speed:0.009,
+            distance:25,
+            radius:105
+        },
+
+        {
+            color:"#38BDF8",
+            angle:5,
+            speed:0.007,
+            distance:20,
+            radius:95
+        }
+
+    ];
+
+
+
+    function drawBlob(blob){
+
+
+        const x =
+            SIZE / 2 +
+            Math.cos(
+                time * blob.speed + blob.angle
+            ) *
+            blob.distance;
+
+
+
+        const y =
+            SIZE / 2 +
+            Math.sin(
+                time * blob.speed + blob.angle
+            ) *
+            blob.distance;
+
+
+
+        const pulse =
+            Math.sin(time * 0.03 + blob.angle) * 8;
+
+
+
+        const radius =
+            blob.radius + pulse;
+
+
+
+        const gradient =
+            ctx.createRadialGradient(
+                x,
+                y,
+                0,
+                x,
+                y,
+                radius
+            );
+
+
+
+        gradient.addColorStop(
+            0,
+            blob.color
+        );
+
+
+        gradient.addColorStop(
+            0.55,
+            blob.color + "DD"
+        );
+
+
+        gradient.addColorStop(
+            1,
+            "transparent"
+        );
+
+
+
+        ctx.fillStyle = gradient;
+
+
+
+        ctx.beginPath();
+
+        ctx.arc(
+            x,
+            y,
+            radius,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.fill();
+
+
     }
 
-];
 
-let time = 0;
-function drawBlob(blob){
 
-    const gradient = ctx.createRadialGradient(
 
-        blob.x,
-        blob.y,
-        blob.radius * 0.15,
+    function animate(){
 
-        blob.x,
-        blob.y,
-        blob.radius * 1.4
 
-    );
+        ctx.clearRect(
+            0,
+            0,
+            SIZE,
+            SIZE
+        );
 
-    gradient.addColorStop(0.00, blob.color);
-    gradient.addColorStop(0.54, blob.color);
-    gradient.addColorStop(0.75, blob.color + "99");
-    gradient.addColorStop(1.00, "rgba(0,0,0,0)");
 
-    ctx.save();
+        ctx.globalCompositeOperation = "screen";
 
-    ctx.translate(blob.x, blob.y);
 
-    const sx = 1 + Math.sin(time * 0.02 + blob.angle) * 0.08;
-    const sy = 1 + Math.cos(time * 0.02 + blob.angle) * 0.08;
+        blobs.forEach(drawBlob);
 
-    ctx.scale(sx, sy);
 
-    ctx.fillStyle = gradient;
 
-    ctx.beginPath();
-    ctx.arc(
-        0,
-        0,
-        blob.radius,
-        0,
-        Math.PI * 2
-    );
-    ctx.fill();
+        ctx.globalCompositeOperation = "source-over";
 
-    ctx.restore();
 
-}
+        time++;
 
-function render(){
 
-    ctx.clearRect(0,0,SIZE,SIZE);
+        requestAnimationFrame(animate);
 
-    for(const blob of blobs){
-
-        drawBlob(blob);
 
     }
 
-}
-function updateBlobs(){
 
-    time++;
 
-    const breath = (Math.sin(time * 0.02) + 1) / 2;
+    animate();
 
-    blobs.forEach((blob,index)=>{
 
-        const orbit =
-            22 +
-            Math.sin(time * 0.015 + index) * 10;
-
-        blob.x =
-            CENTER +
-            Math.cos(time * blob.speed + blob.angle) * orbit +
-            Math.sin(time * blob.speed * 2.3 + index) * 12;
-
-        blob.y =
-            CENTER +
-            Math.sin(time * blob.speed * 1.4 + blob.angle) * orbit +
-            Math.cos(time * blob.speed * 1.8 + index) * 12;
-
-        const targetRadius =
-            170 +
-            breath * 18 +
-            Math.sin(time * 0.03 + blob.angle) * 8 +
-            Math.cos(time * 0.02 + index) * 4;
-
-        blob.radius +=
-            (targetRadius - blob.radius) * 0.08;
-
-    });
-
-}
- 
+});
