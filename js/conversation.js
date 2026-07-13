@@ -93,11 +93,32 @@ for(let i = 0; i <= 360; i += 8){
     const px = Math.cos(a) * r;
     const py = Math.sin(a) * r;
 
-    if(i === 0){
-        ctx.moveTo(px, py);
-    }else{
-        ctx.lineTo(px, py);
-    }
+if(i === 0){
+
+    ctx.moveTo(px, py);
+
+}else{
+
+    const prevA = (i - 8) * Math.PI / 180;
+
+    const prevOffset =
+        Math.sin(blob.time * 2 + prevA * 5) * 5 +
+        Math.cos(blob.time * 3 + prevA * 3) * 3;
+
+    const prevR = blob.r + prevOffset;
+
+    const prevX = Math.cos(prevA) * prevR;
+    const prevY = Math.sin(prevA) * prevR;
+
+    ctx.quadraticCurveTo(
+
+        prevX,
+        prevY,
+
+        (prevX + px) / 2,
+        (prevY + py) / 2
+
+    );
 
 }
 
