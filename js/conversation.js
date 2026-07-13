@@ -1,4 +1,3 @@
-alert("YANGI JS ISHLADI");
 const canvas = document.getElementById("orbCanvas");
 const ctx = canvas.getContext("2d");
 
@@ -7,135 +6,228 @@ const SIZE = 200;
 canvas.width = SIZE;
 canvas.height = SIZE;
 
-const CENTER = SIZE / 2;
+
+let time = 0;
+
 
 const blobs = [
 
     {
-        color:"#7C5CFF",
-        x:70,
-        y:70,
-        radius:120,
+        color:"#9B8CFF",
         angle:0,
-        speed:0.0038
+        speed:0.012,
+        radius:75,
+        distance:28
     },
 
     {
-        color:"#3B82F6",
-        x:150,
-        y:70,
-        radius:115,
-        angle:1.8,
-        speed:0.0045
+        color:"#7C5CFF",
+        angle:2,
+        speed:0.009,
+        radius:80,
+        distance:35
     },
 
     {
-        color:"#8B5CF6",
-        x:150,
-        y:150,
-        radius:118,
-        angle:3.7,
-        speed:0.0032
+        color:"#5E7CFF",
+        angle:4,
+        speed:0.011,
+        radius:78,
+        distance:32
     },
 
     {
-        color:"#2563EB",
-        x:70,
-        y:150,
-        radius:120,
-        angle:5.4,
-        speed:0.0041
+        color:"#38BDF8",
+        angle:5,
+        speed:0.008,
+        radius:65,
+        distance:25
     }
 
 ];
 
-let time = 0;
+
+
 function drawBlob(blob){
 
-    const gradient = ctx.createRadialGradient(
 
-        blob.x,
-        blob.y,
-        blob.radius * 0.15,
+    const x =
+        SIZE / 2 +
+        Math.cos(
+            time * blob.speed + blob.angle
+        )
+        *
+        blob.distance;
 
-        blob.x,
-        blob.y,
-        blob.radius * 1.4
 
+
+    const y =
+        SIZE / 2 +
+        Math.sin(
+            time * blob.speed + blob.angle
+        )
+        *
+        blob.distance;
+
+
+
+    const pulse =
+        Math.sin(
+            time * 0.025 + blob.angle
+        ) * 8;
+
+
+
+    const size =
+        blob.radius + pulse;
+
+
+
+    const gradient =
+        ctx.createRadialGradient(
+            x,
+            y,
+            0,
+            x,
+            y,
+            size
+        );
+
+
+    gradient.addColorStop(
+        0,
+        blob.color
     );
 
-    gradient.addColorStop(0.00, blob.color);
-    gradient.addColorStop(0.54, blob.color);
-    gradient.addColorStop(0.75, blob.color + "99");
-    gradient.addColorStop(1.00, "rgba(0,0,0,0)");
 
-    ctx.save();
+    gradient.addColorStop(
+        0.35,
+        blob.color + "EE"
+    );
 
-    ctx.translate(blob.x, blob.y);
 
-    const sx = 1 + Math.sin(time * 0.02 + blob.angle) * 0.08;
-    const sy = 1 + Math.cos(time * 0.02 + blob.angle) * 0.08;
+    gradient.addColorStop(
+        0.7,
+        blob.color + "55"
+    );
 
-    ctx.scale(sx, sy);
+
+    gradient.addColorStop(
+        1,
+        "transparent"
+    );
+
+
 
     ctx.fillStyle = gradient;
 
+
+
     ctx.beginPath();
+
     ctx.arc(
-        0,
-        0,
-        blob.radius,
+        x,
+        y,
+        size,
         0,
         Math.PI * 2
     );
-    ctx.fill();
 
-    ctx.restore();
+    ctx.fill();
 
 }
 
-function render(){
 
-    ctx.clearRect(0,0,SIZE,SIZE);
 
-    for(const blob of blobs){
+
+function drawGlow(){
+
+
+    const glow =
+    ctx.createRadialGradient(
+        100,
+        100,
+        10,
+        100,
+        100,
+        120
+    );
+
+
+    glow.addColorStop(
+        0,
+        "rgba(255,255,255,0.18)"
+    );
+
+
+    glow.addColorStop(
+        1,
+        "rgba(255,255,255,0)"
+    );
+
+
+    ctx.fillStyle = glow;
+
+
+    ctx.beginPath();
+
+    ctx.arc(
+        100,
+        100,
+        100,
+        0,
+        Math.PI * 2
+    );
+
+    ctx.fill();
+
+
+}
+
+
+
+function animate(){
+
+
+    ctx.clearRect(
+        0,
+        0,
+        SIZE,
+        SIZE
+    );
+
+
+
+    // yumshoq aralashish
+
+    ctx.globalCompositeOperation = "screen";
+
+
+
+    blobs.forEach(blob=>{
 
         drawBlob(blob);
 
-    }
+    });
 
-}
-function updateBlobs(){
+
+
+    ctx.globalCompositeOperation = "source-over";
+
+
+
+    drawGlow();
+
+
 
     time++;
 
-    const breath = (Math.sin(time * 0.02) + 1) / 2;
 
-    blobs.forEach((blob,index)=>{
+    requestAnimationFrame(animate);
 
-        const orbit =
-            22 +
-            Math.sin(time * 0.015 + index) * 10;
-
-        blob.x =
-            CENTER +
-            Math.cos(time * blob.speed + blob.angle) * orbit +
-            Math.sin(time * blob.speed * 2.3 + index) * 12;
-
-        blob.y =
-            CENTER +
-            Math.sin(time * blob.speed * 1.4 + blob.angle) * orbit +
-            Math.cos(time * blob.speed * 1.8 + index) * 12;
-
-        const targetRadius =
-            105 +
-            breath * 18 +
-            Math.sin(time * 0.03 + blob.angle) * 8 +
-            Math.cos(time * 0.02 + index) * 4;
-
-        blob.radius +=
-            (targetRadius - blob.radius) * 0.08;
-
-    });
 
 }
+
+
+
+animate();
