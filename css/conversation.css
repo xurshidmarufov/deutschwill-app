@@ -123,13 +123,16 @@ body{
 }
 
 .orb-text h3{
-    font-size:24px;
+    font-size:21px;
     font-weight:700;
     color:#1F1F1F;
+    margin-bottom:4px;
 }
 
 .orb-text p{
-    margin-top:10px;
-    font-size:15px;
+    
+    font-size:13px;
     color:#777;
+    line-height:1.4;
+    margin:0;
 }
