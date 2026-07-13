@@ -79,12 +79,15 @@ function drawBlob(blob){
     ctx.fill();
 
 }
-
 function render(){
 
     ctx.clearRect(0,0,SIZE,SIZE);
 
-    drawBlob(blobs[0]);
+    for(const blob of blobs){
+
+        drawBlob(blob);
+
+    }
 
 }
 
