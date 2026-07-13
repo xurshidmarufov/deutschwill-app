@@ -80,15 +80,30 @@ function drawBlob(blob){
 
     ctx.beginPath();
 
-    ctx.arc(
-        0,
-        0,
-        blob.r,
-        0,
-        Math.PI * 2
-    );
+for(let i = 0; i <= 360; i += 8){
 
-    ctx.fill();
+    const a = i * Math.PI / 180;
+
+    const offset =
+        Math.sin(blob.time * 2 + a * 5) * 5 +
+        Math.cos(blob.time * 3 + a * 3) * 3;
+
+    const r = blob.r + offset;
+
+    const px = Math.cos(a) * r;
+    const py = Math.sin(a) * r;
+
+    if(i === 0){
+        ctx.moveTo(px, py);
+    }else{
+        ctx.lineTo(px, py);
+    }
+
+}
+
+ctx.closePath();
+
+ctx.fill();
 
     ctx.restore();
 
