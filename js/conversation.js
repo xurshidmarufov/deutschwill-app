@@ -24,7 +24,11 @@ const blobs = [
 
     {
         color:"#7C5CFF",
-        radius:85,
+        
+        radius:110
+        radius:105
+        radius:90
+        radius:95
         angle:0,
         speed:0.003
     },
@@ -77,13 +81,12 @@ function drawBlob(blob,index){
 
         x,
         y,
-        blob.radius
+        blob.radius * 1.6
 
     );
 
-    gradient.addColorStop(0, blob.color);
-
-    gradient.addColorStop(1, "transparent");
+   gradient.addColorStop(0.65, blob.color);
+gradient.addColorStop(1, "rgba(0,0,0,0)");
 
     ctx.globalCompositeOperation = "lighter";
 
