@@ -100,3 +100,36 @@ body{
     display:block;
 
 }
+.conversation-main{
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    min-height:100vh;
+    padding-top:90px;
+}
+
+.orb-container{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+}
+
+.orb-text{
+    width:100%;
+    margin-top:36px;
+    text-align:center;
+}
+
+.orb-text h3{
+    font-size:24px;
+    font-weight:700;
+    color:#1F1F1F;
+}
+
+.orb-text p{
+    margin-top:10px;
+    font-size:15px;
+    color:#777;
+}
