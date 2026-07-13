@@ -26,30 +26,27 @@ const blobs = [
         color:"#7C5CFF",
         
         radius:110
-        radius:105
-        radius:90
-        radius:95
         angle:0,
         speed:0.003
     },
 
     {
         color:"#6EB8FF",
-        radius:80,
+        radius:105,
         angle:2,
         speed:0.0024
     },
 
     {
         color:"#C8F1FF",
-        radius:60,
+        radius:90,
         angle:4,
         speed:0.0028
     },
 
     {
         color:"#5E52E8",
-        radius:70,
+        radius:95,
         angle:5,
         speed:0.0019
     }
@@ -67,11 +64,11 @@ function drawBlob(blob,index){
 
     const x =
         110 +
-        Math.cos(time * blob.speed + blob.angle) * 35;
+        Math.cos(time * blob.speed + blob.angle) * 55;
 
     const y =
         110 +
-        Math.sin(time * blob.speed + blob.angle) * 35;
+        Math.sin(time * blob.speed + blob.angle) * 55;
 
     const gradient = ctx.createRadialGradient(
 
