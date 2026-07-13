@@ -85,7 +85,7 @@ function drawBlob(blob,index){
    gradient.addColorStop(0.65, blob.color);
 gradient.addColorStop(1, "rgba(0,0,0,0)");
 
-    ctx.globalCompositeOperation = "lighter";
+    ctx.globalCompositeOperation = "source-over";
 
     ctx.fillStyle = gradient;
 
