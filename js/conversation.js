@@ -1,123 +1,91 @@
 const canvas = document.getElementById("orbCanvas");
 const ctx = canvas.getContext("2d");
 
-const DPR = window.devicePixelRatio || 1;
+const SIZE = 220;
 
-function resizeCanvas(){
+canvas.width = SIZE;
+canvas.height = SIZE;
 
-    const size = canvas.clientWidth;
-
-    canvas.width = size * DPR;
-    canvas.height = size * DPR;
-
-    ctx.setTransform(DPR,0,0,DPR,0,0);
-
-}
-
-window.addEventListener("resize", resizeCanvas);
-
-resizeCanvas();
-
-let time = 0;
-
+const center = SIZE / 2;
 const blobs = [
 
     {
+        x:70,
+        y:70,
+        r:95,
         color:"#7C5CFF",
-        
-        radius:110,
-        angle:0,
-        speed:0.003
+        vx:0.28,
+        vy:0.22
     },
 
     {
+        x:150,
+        y:70,
+        r:90,
         color:"#6EB8FF",
-        radius:105,
-        angle:2,
-        speed:0.0024
+        vx:-0.24,
+        vy:0.26
     },
 
     {
-        color:"#C8F1FF",
-        radius:90,
-        angle:4,
-        speed:0.0028
+        x:150,
+        y:150,
+        r:85,
+        color:"#8A6BFF",
+        vx:-0.22,
+        vy:-0.20
     },
 
     {
-        color:"#5E52E8",
-        radius:95,
-        angle:5,
-        speed:0.0019
+        x:70,
+        y:150,
+        r:88,
+        color:"#5C8FFF",
+        vx:0.25,
+        vy:-0.24
     }
 
 ];
-
-function draw(){
-
-    time += 1;
-
-    ctx.clearRect(0,0,220,220);
-
-}
-function drawBlob(blob,index){
-
-    const x =
-        110 +
-        Math.cos(time * blob.speed + blob.angle) * 55;
-
-    const y =
-        110 +
-        Math.sin(time * blob.speed + blob.angle) * 55;
+function drawBlob(blob){
 
     const gradient = ctx.createRadialGradient(
 
-        x,
-        y,
+        blob.x,
+        blob.y,
         0,
 
-        x,
-        y,
-        blob.radius * 1.6
+        blob.x,
+        blob.y,
+        blob.r
 
     );
 
-   gradient.addColorStop(0.65, blob.color);
-gradient.addColorStop(1, "rgba(0,0,0,0)");
+    gradient.addColorStop(0, blob.color);
 
-    ctx.globalCompositeOperation = "source-over";
+    gradient.addColorStop(1, "rgba(0,0,0,0)");
 
     ctx.fillStyle = gradient;
 
     ctx.beginPath();
 
     ctx.arc(
-
-        x,
-
-        y,
-
-        blob.radius,
-
+        blob.x,
+        blob.y,
+        blob.r,
         0,
-
         Math.PI * 2
-
     );
 
     ctx.fill();
 
 }
-function animate(){
 
-    ctx.clearRect(0,0,220,220);
+function render(){
 
-    blobs.forEach(drawBlob);
+    ctx.clearRect(0,0,SIZE,SIZE);
 
-    time++;
-
-    requestAnimationFrame(animate);
+    drawBlob(blobs[0]);
 
 }
 
-animate();
+render();
