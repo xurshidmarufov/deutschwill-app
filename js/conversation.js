@@ -48,21 +48,19 @@ const blobs = [
 ];
 function drawBlob(blob){
 
-    const gradient = ctx.createRadialGradient(
+ const gradient = ctx.createRadialGradient(
+    blob.x,
+    blob.y,
+    blob.r * 0.15,
+    blob.x,
+    blob.y,
+    blob.r
+);
 
-        blob.x,
-        blob.y,
-        0,
-
-        blob.x,
-        blob.y,
-        blob.r
-
-    );
-
-    gradient.addColorStop(0, blob.color);
-
-    gradient.addColorStop(1, "rgba(0,0,0,0)");
+gradient.addColorStop(0.00, blob.color);
+gradient.addColorStop(0.35, blob.color);
+gradient.addColorStop(0.70, blob.color + "88");
+gradient.addColorStop(1.00, "rgba(0,0,0,0)");
 
     ctx.fillStyle = gradient;
 
@@ -75,7 +73,7 @@ function drawBlob(blob){
         0,
         Math.PI * 2
     );
-
+  ctx.globalCompositeOperation = "screen";
     ctx.fill();
 
 }
