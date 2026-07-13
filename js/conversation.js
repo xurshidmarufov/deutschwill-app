@@ -90,14 +90,14 @@ function drawBlob(blob){
 
         blob.x,
         blob.y,
-        blob.r
+        blob.r * 1.45
 
     );
 
-    gradient.addColorStop(0.00, blob.color);
-    gradient.addColorStop(0.55, blob.color);
-    gradient.addColorStop(0.82, blob.color + "55");
-    gradient.addColorStop(1.00, "rgba(0,0,0,0)");
+  gradient.addColorStop(0.00, blob.color);
+gradient.addColorStop(0.60, blob.color);
+gradient.addColorStop(0.90, blob.color + "44");
+gradient.addColorStop(1.00, "rgba(0,0,0,0)");
 
     ctx.save();
 
@@ -183,26 +183,21 @@ function updateBlobs(){
 
         blob.time += blob.speed;
 
-        const n1 = Math.sin(blob.time * 2.3);
-        const n2 = Math.cos(blob.time * 1.7);
-        const n3 = Math.sin(blob.time * 0.9);
+        const a = blob.time;
 
         blob.x =
             110 +
-            Math.cos(blob.time * 1.2) * 40 +
-            n1 * 18 +
-            n2 * 8;
+            Math.cos(a * 1.1) * 28 +
+            Math.sin(a * 2.3) * 14;
 
         blob.y =
             110 +
-            Math.sin(blob.time * 1.1) * 42 +
-            n2 * 16 +
-            n3 * 10;
+            Math.sin(a * 1.3) * 28 +
+            Math.cos(a * 2.1) * 14;
 
         blob.r =
-            118 +
-            Math.sin(blob.time * 2.1) * 10 +
-            Math.cos(blob.time * 1.4) * 6;
+            105 +
+            Math.sin(a * 1.7) * 18;
 
     }
 
