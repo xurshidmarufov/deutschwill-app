@@ -127,7 +127,7 @@ function updateBlobs(){
             Math.cos(time * blob.speed * 1.8 + index) * 12;
 
         const targetRadius =
-            170 +
+            105 +
             breath * 18 +
             Math.sin(time * 0.03 + blob.angle) * 8 +
             Math.cos(time * 0.02 + index) * 4;
