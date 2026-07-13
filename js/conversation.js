@@ -40,7 +40,7 @@ const blobs = [
         x:70,
         y:150,
         r:88,
-        color:"#5C8FFF",
+        color:"#6EB8FF",
         vx:0.25,
         vy:-0.24
     }
