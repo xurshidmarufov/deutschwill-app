@@ -113,29 +113,39 @@ function updateBlobs(){
 
         blob.time += blob.speed;
 
+        const n1 = Math.sin(blob.time * 2.3);
+        const n2 = Math.cos(blob.time * 1.7);
+        const n3 = Math.sin(blob.time * 0.9);
+
         blob.x =
             110 +
-            Math.cos(blob.time * 1.37) * 42 +
-            Math.sin(blob.time * 2.41) * 18;
+            Math.cos(blob.time * 1.2) * 40 +
+            n1 * 18 +
+            n2 * 8;
 
         blob.y =
             110 +
-            Math.sin(blob.time * 1.11) * 46 +
-            Math.cos(blob.time * 1.93) * 16;
+            Math.sin(blob.time * 1.1) * 42 +
+            n2 * 16 +
+            n3 * 10;
 
         blob.r =
             118 +
-            Math.sin(blob.time * 2.2) * 10;
+            Math.sin(blob.time * 2.1) * 10 +
+            Math.cos(blob.time * 1.4) * 6;
 
     }
 
 }
-
 function animate(){
 
     updateBlobs();
 
+    ctx.filter = "blur(18px)";
+
     render();
+
+    ctx.filter = "none";
 
     requestAnimationFrame(animate);
 
