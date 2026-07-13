@@ -1,4 +1,4 @@
-alert("JS START");
+alert("JS joyida START");
 const canvas = document.getElementById("orbCanvas");
 const ctx = canvas.getContext("2d");
 
