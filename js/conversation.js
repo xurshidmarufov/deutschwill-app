@@ -14,7 +14,7 @@ const blobs = [
         color:"#7C5CFF",
         x:70,
         y:70,
-        radius:120,
+        radius:170,
         angle:0,
         speed:0.0038
     },
@@ -23,7 +23,7 @@ const blobs = [
         color:"#3B82F6",
         x:150,
         y:70,
-        radius:115,
+        radius:160,
         angle:1.8,
         speed:0.0045
     },
@@ -32,7 +32,7 @@ const blobs = [
         color:"#8B5CF6",
         x:150,
         y:150,
-        radius:118,
+        radius:155,
         angle:3.7,
         speed:0.0032
     },
@@ -41,7 +41,7 @@ const blobs = [
         color:"#2563EB",
         x:70,
         y:150,
-        radius:120,
+        radius:170,
         angle:5.4,
         speed:0.0041
     }
