@@ -100,7 +100,7 @@ gradient.addColorStop(0.90, blob.color + "44");
 gradient.addColorStop(1.00, "rgba(0,0,0,0)");
 
     ctx.save();
-
+ctx.filter = "blur(22px)";
     ctx.globalCompositeOperation = "lighter";
 
     ctx.translate(blob.x, blob.y);
@@ -159,7 +159,7 @@ if(i === 0){
 ctx.closePath();
 
 ctx.fill();
-
+ctx.filter = "none";
     ctx.restore();
 
 }
@@ -167,11 +167,15 @@ function render(){
 
     ctx.clearRect(0,0,SIZE,SIZE);
 
+    ctx.globalAlpha = 0.92;
+
     for(const blob of blobs){
 
         drawBlob(blob);
 
     }
+
+    ctx.globalAlpha = 1;
 
 }
 
@@ -205,11 +209,11 @@ function updateBlobs(){
 function animate(){
 
     updateBlobs();
-
+ctx.globalCompositeOperation = "lighter";
     ctx.filter = "blur(18px)";
 
     render();
-
+ctx.globalCompositeOperation = "source-over";
     ctx.filter = "none";
 
     requestAnimationFrame(animate);
