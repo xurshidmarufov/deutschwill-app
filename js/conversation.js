@@ -25,7 +25,7 @@ const blobs = [
     {
         color:"#7C5CFF",
         
-        radius:110
+        radius:110,
         angle:0,
         speed:0.003
     },
