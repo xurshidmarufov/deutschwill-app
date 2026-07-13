@@ -44,7 +44,41 @@ const blobs = [
         time:103.7,
         speed:0.0048
     }
+{
+    x:110,
+    y:50,
+    r:105,
+    color:"#6B5CFF",
+    time:145,
+    speed:0.0042
+},
 
+{
+    x:170,
+    y:110,
+    r:95,
+    color:"#3B82F6",
+    time:210,
+    speed:0.0051
+},
+
+{
+    x:110,
+    y:170,
+    r:100,
+    color:"#8B5CFF",
+    time:78,
+    speed:0.0048
+},
+
+{
+    x:50,
+    y:110,
+    r:98,
+    color:"#2563EB",
+    time:320,
+    speed:0.0054
+}
 ];
 function drawBlob(blob){
 
