@@ -69,3 +69,43 @@ body{
     background:#22C55E;
     border-radius:50%;
 }
+/* ==========================
+        DEUTSCH WILL ORB
+========================== */
+
+.conversation-main{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:78vh;
+}
+
+.orb-container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.ai-orb{
+
+    position:relative;
+
+    width:220px;
+    height:220px;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    background:linear-gradient(
+        135deg,
+        #7C5CFF 0%,
+        #6F6EFF 45%,
+        #6EB8FF 100%
+    );
+
+    box-shadow:
+        0 0 30px rgba(124,92,255,.20),
+        0 0 70px rgba(110,184,255,.15);
+
+}
