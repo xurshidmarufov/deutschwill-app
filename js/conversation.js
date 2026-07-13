@@ -100,7 +100,7 @@ gradient.addColorStop(0.90, blob.color + "44");
 gradient.addColorStop(1.00, "rgba(0,0,0,0)");
 
     ctx.save();
-ctx.filter = "blur(22px)";
+ctx.filter = "none";
     ctx.globalCompositeOperation = "lighter";
 
     ctx.translate(blob.x, blob.y);
@@ -209,11 +209,11 @@ function updateBlobs(){
 function animate(){
 
     updateBlobs();
-ctx.globalCompositeOperation = "lighter";
+
     ctx.filter = "blur(18px)";
 
     render();
-ctx.globalCompositeOperation = "source-over";
+
     ctx.filter = "none";
 
     requestAnimationFrame(animate);
