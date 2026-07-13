@@ -92,3 +92,34 @@ function render(){
 }
 
 render();
+
+function updateBlobs(){
+
+    for(const blob of blobs){
+
+        blob.x += blob.vx;
+        blob.y += blob.vy;
+
+        if(blob.x < 55 || blob.x > 165){
+            blob.vx *= -1;
+        }
+
+        if(blob.y < 55 || blob.y > 165){
+            blob.vy *= -1;
+        }
+
+    }
+
+}
+
+function animate(){
+
+    updateBlobs();
+
+    render();
+
+    requestAnimationFrame(animate);
+
+}
+
+animate();
