@@ -93,22 +93,23 @@ function render(){
 
 render();
 
+let t = 0;
+
 function updateBlobs(){
 
-    for(const blob of blobs){
+    t += 0.008;
 
-        blob.x += blob.vx;
-        blob.y += blob.vy;
+    blobs[0].x = 110 + Math.cos(t * 1.0) * 45;
+    blobs[0].y = 110 + Math.sin(t * 1.2) * 35;
 
-        if(blob.x < 55 || blob.x > 165){
-            blob.vx *= -1;
-        }
+    blobs[1].x = 110 + Math.cos(t * 0.9 + 2) * 42;
+    blobs[1].y = 110 + Math.sin(t * 1.1 + 2) * 40;
 
-        if(blob.y < 55 || blob.y > 165){
-            blob.vy *= -1;
-        }
+    blobs[2].x = 110 + Math.cos(t * 1.1 + 4) * 38;
+    blobs[2].y = 110 + Math.sin(t * 0.9 + 4) * 42;
 
-    }
+    blobs[3].x = 110 + Math.cos(t * 1.2 + 6) * 40;
+    blobs[3].y = 110 + Math.sin(t * 1.0 + 6) * 38;
 
 }
 
