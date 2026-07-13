@@ -7,3 +7,4 @@ canvas.height = 200;
 
 ctx.fillStyle = "red";
 ctx.fillRect(0,0,200,200);
+
