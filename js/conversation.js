@@ -7,8 +7,10 @@ canvas.width = SIZE;
 canvas.height = SIZE;
 
 const CENTER = SIZE / 2;
-const ORB_RADIUS = 82;
-const PARTICLE_COUNT = 600;
+
+const PARTICLE_COUNT = 700;
+
+const ORB_RADIUS = 90;
 
 const COLORS = [
     "#7C5CFF",
@@ -17,7 +19,6 @@ const COLORS = [
 ];
 
 const particles = [];
-
 function createParticles() {
 
     particles.length = 0;
@@ -26,16 +27,28 @@ function createParticles() {
 
         const angle = Math.random() * Math.PI * 2;
 
+        // Markazga yaqin zarralar ko'proq,
+        // chetlarga borgani sari kamayadi.
         const distance =
             Math.sqrt(Math.random()) * ORB_RADIUS;
 
         particles.push({
 
-            x: CENTER + Math.cos(angle) * distance,
+            angle: angle,
 
-            y: CENTER + Math.sin(angle) * distance,
+            distance: distance,
 
-            radius: 1.5 + Math.random() * 1.5,
+            x:
+                CENTER +
+                Math.cos(angle) * distance,
+
+            y:
+                CENTER +
+                Math.sin(angle) * distance,
+
+            radius:
+                1.8 +
+                Math.random() * 1.6,
 
             color:
                 COLORS[
@@ -55,9 +68,11 @@ function render() {
 
     for (const particle of particles) {
 
+        ctx.beginPath();
+
         ctx.fillStyle = particle.color;
 
-        ctx.beginPath();
+        ctx.globalAlpha = 0.85;
 
         ctx.arc(
 
@@ -72,6 +87,8 @@ function render() {
         ctx.fill();
 
     }
+
+    ctx.globalAlpha = 1;
 
 }
 
