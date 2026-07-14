@@ -49,3 +49,32 @@ function createParticles() {
     }
 
 }
+function render() {
+
+    ctx.clearRect(0, 0, SIZE, SIZE);
+
+    for (const particle of particles) {
+
+        ctx.fillStyle = particle.color;
+
+        ctx.beginPath();
+
+        ctx.arc(
+
+            particle.x,
+            particle.y,
+            particle.radius,
+            0,
+            Math.PI * 2
+
+        );
+
+        ctx.fill();
+
+    }
+
+}
+
+createParticles();
+
+render();
