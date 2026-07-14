@@ -1,4 +1,3 @@
-
 /**
  * settingsBtn hozircha hech narsa qilmaydi - modal keyinroq qo'shiladi.
  */
