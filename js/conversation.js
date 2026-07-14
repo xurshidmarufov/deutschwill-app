@@ -1,4 +1,4 @@
-alert("JS joyidami? START");
+alert("JS ishladi START");
 const canvas = document.getElementById("orbCanvas");
 const ctx = canvas.getContext("2d");
 
