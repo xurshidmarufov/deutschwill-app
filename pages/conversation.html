@@ -5,59 +5,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Will Conversation</title>
 
-<link rel="stylesheet" href="css/conversation.css">
+    <link rel="stylesheet" href="../css/conversation.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
 
 <div class="conversation-container">
 
+    <!-- Header -->
     <header class="conversation-header">
+
         <button class="back-btn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            <i data-lucide="arrow-left"></i>
         </button>
+
         <div class="header-center">
             <h2>Will</h2>
-            <p><span class="online-dot"></span>Online</p>
+            <p>
+                <span class="online-dot"></span>
+                Online
+            </p>
         </div>
-        <!-- Settings tugmasi qoldi, ichi (modal) hozircha yo'q - keyinroq qo'shiladi -->
-        <button class="settings-btn" id="settingsBtn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+
+        <button class="settings-btn">
+            <i data-lucide="ellipsis"></i>
         </button>
+
     </header>
+<!-- AI Conversation -->
+<main class="conversation-main">
 
-    <main class="conversation-main">
-        <div class="orb-container">
+    <div class="orb-container">
 
-            <div class="orb-stage" id="orbStage">
-                <div class="halo"></div>
-                <canvas id="orbCanvas"></canvas>
-            </div>
+        <div class="orb-stage" id="orbStage">
 
-            <div class="orb-text" id="orbText">
+            <div class="halo"></div>
+
+            <canvas id="orbCanvas"></canvas>
+
+        </div>
+            <!-- Intro -->
+            <div class="orb-text">
                 <h3>Sprich mit Will.</h3>
                 <p>🇺🇿 Mikrofonni bosing va suhbatni boshlang.</p>
             </div>
 
-            <div class="subtitle-box is-hidden" id="subtitleBox">
+            <!-- Subtitle -->
+            <div class="subtitle-box">
+
                 <p class="german"></p>
+
                 <p class="uzbek"></p>
+
             </div>
 
-            <button class="mic-btn" id="micBtn">
-                <svg id="micIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+            <!-- Microphone -->
+            <button class="mic-btn">
+                <i data-lucide="mic"></i>
             </button>
 
-            <div class="browser-warning" id="browserWarning">
-                Brauzeringiz ovoz tanishni qo'llab-quvvatlamaydi. Chrome yoki Edge'da oching.
-            </div>
-
         </div>
+
     </main>
 
 </div>
 
-<script src="js/conversation.js"></script>
+<script>
+    lucide.createIcons();
+</script>
+
+<script src="../js/conversation.js?v=99"></script> 
 
 </body>
 </html>
