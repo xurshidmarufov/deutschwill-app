@@ -1,119 +1,120 @@
-*{ margin:0; padding:0; box-sizing:border-box; }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
 body{
-    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family:'Poppins',sans-serif;
     background:#F8F9FC;
 }
 
-.conversation-container{ max-width:430px; min-height:100vh; margin:auto; padding:20px; }
-.conversation-header{ display:flex; align-items:center; justify-content:space-between; }
-
-.back-btn, .settings-btn{
-    width:44px; height:44px; border:none; border-radius:50%;
-    background:#fff; display:flex; align-items:center; justify-content:center;
-    cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,.08);
-    transition: transform .2s ease;
-}
-.back-btn:hover, .settings-btn:hover{ transform:scale(1.08); }
-.back-btn svg, .settings-btn svg{ width:20px; height:20px; color:#333; }
-
-.header-center{ text-align:center; }
-.header-center h2{ font-size:22px; font-weight:700; color:#1F1F1F; }
-.header-center p{ display:flex; align-items:center; justify-content:center; gap:6px; margin-top:4px; font-size:13px; color:#777; }
-.online-dot{ width:8px; height:8px; background:#22C55E; border-radius:50%; }
-
-.conversation-main{ display:flex; justify-content:center; align-items:flex-start; min-height:100vh; padding-top:90px; }
-.orb-container{ width:100%; display:flex; flex-direction:column; align-items:center; text-align:center; }
-
-.orb-stage{
-    position:relative;
-    width:220px;
-    height:220px;
+.conversation-container{
+    max-width:430px;
+    min-height:100vh;
     margin:auto;
+    padding:20px;
 }
 
-.halo{
-    position:absolute;
-    inset:-24px;
+.conversation-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.back-btn,
+.settings-btn{
+    width:44px;
+    height:44px;
+    border:none;
     border-radius:50%;
-    background: radial-gradient(circle,
-                rgba(124,92,255,0.28) 0%,
-                rgba(59,130,246,0.16) 45%,
-                rgba(37,99,235,0.06) 65%,
-                transparent 75%);
-    filter: blur(20px);
-    opacity:0.7;
-    animation: haloBreathe 4.2s ease-in-out infinite;
-    transition: opacity .5s ease;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
 }
 
-@keyframes haloBreathe{
-    0%, 100% { transform:scale(1); opacity:0.6; }
-    50%      { transform:scale(1.06); opacity:0.85; }
+.back-btn i,
+.settings-btn i{
+    width:20px;
+    height:20px;
+    color:#333;
 }
 
-.orb-stage.state-listening .halo{ opacity:0.95; }
-.orb-stage.state-thinking  .halo{ opacity:0.8; }
-.orb-stage.state-speaking  .halo{ opacity:1; }
+.header-center{
+    text-align:center;
+}
 
-#orbCanvas{ position:relative; width:100%; height:100%; display:block; }
+.header-center h2{
+    font-size:22px;
+    font-weight:700;
+    color:#1F1F1F;
+}
+
+.header-center p{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    margin-top:4px;
+    font-size:13px;
+    color:#777;
+}
+
+.online-dot{
+    width:8px;
+    height:8px;
+    background:#22C55E;
+    border-radius:50%;
+}
+/* ==========================
+        DEUTSCH WILL ORB
+========================== */
+#orbCanvas{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    display:block;
+
+}
+justify-content:center;
+    align-items:flex-start;
+    min-height:100vh;
+    padding-top:90px;
+}
+
+.orb-container{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+}
 
 .orb-text{
     width:100%;
-    margin-top:30px;
+    margin-top:36px;
     text-align:center;
-    transition:opacity .3s ease, transform .3s ease;
-    opacity:1;
-    transform:translateY(0) scale(1);
-}
-.orb-text.is-hidden{ opacity:0; transform:translateY(-10px) scale(0.97); pointer-events:none; }
-.orb-text h3{ font-size:21px; font-weight:700; color:#1F1F1F; margin-bottom:3px; }
-.orb-text p{ font-size:13px; color:#777; line-height:1.4; margin:0; }
-
-.subtitle-box{
-    margin-top:22px;
-    height:44px;
-    overflow:hidden;
-    transition:opacity .3s ease, transform .3s ease; opacity:1;
-}
-.subtitle-box.is-hidden{ opacity:0; transform:translateY(-10px); pointer-events:none; }
-.subtitle-box .german{ font-size:15px; font-weight:600; color:#1F1F1F; }
-.subtitle-box .uzbek{ font-size:13px; color:#888; margin-top:2px; }
-
-.mic-btn{
-    margin-top:40px; width:64px; height:64px; border:none; border-radius:50%;
-    background:linear-gradient(135deg,#7C5CFF 0%,#3B82F6 55%,#2563EB 100%); color:#fff;
-    display:flex; align-items:center; justify-content:center; cursor:pointer;
-    box-shadow:0 8px 24px rgba(124,92,255,.4);
-    transition:transform .2s ease, box-shadow .2s ease;
-    position:relative;
-}
-.mic-btn svg{ width:26px; height:26px; }
-.mic-btn:hover{ transform:scale(1.05); }
-.mic-btn.mic-active{ box-shadow:0 8px 30px rgba(124,92,255,.65); transform:scale(1.06); }
-
-.mic-btn::after{
-    content:""; position:absolute; inset:-8px; border-radius:50%;
-    border:2px solid rgba(124,92,255,.5); opacity:0; transform:scale(0.8);
-}
-.mic-btn.mic-active::after{ animation:micRipple 1.4s ease-out infinite; }
-
-@keyframes micRipple{
-    0%{ opacity:.7; transform:scale(0.9); }
-    100%{ opacity:0; transform:scale(1.5); }
 }
 
-.mic-btn:disabled{ opacity:.5; cursor:not-allowed; }
-
-.browser-warning{
-    margin-top:16px;
-    font-size:12px;
-    color:#B45309;
-    background:#FFFBEB;
-    border:1px solid #FDE68A;
-    padding:8px 14px;
-    border-radius:10px;
-    max-width:280px;
-    display:none;
+.orb-text h3{
+    font-size:21px;
+    font-weight:700;
+    color:#1F1F1F;
+    margin-bottom:3px;
 }
-.browser-warning.is-visible{ display:block; }
+
+.orb-text p{
+    
+    font-size:13px;
+    color:#777;
+    line-height:1.4;
+    margin:0;
+}
