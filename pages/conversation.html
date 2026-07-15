@@ -1,87 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Will Conversation</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../css/conversation.css">
+<title>Will Conversation</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet" href="../css/conversation.css">
 </head>
 
 <body>
 
 <div class="conversation-container">
 
-    <!-- Header -->
-    <header class="conversation-header">
+<header class="conversation-header">
 
-        <button class="back-btn">
-            <i data-lucide="arrow-left"></i>
-        </button>
+<button class="back-btn">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<line x1="19" y1="12" x2="5" y2="12"></line>
+<polyline points="12 19 5 12 12 5"></polyline>
+</svg>
+</button>
 
-        <div class="header-center">
-            <h2>Will</h2>
-            <p>
-                <span class="online-dot"></span>
-                Online
-            </p>
-        </div>
+<div class="header-center">
+<h2>Will</h2>
+<p>
+<span class="online-dot"></span>
+Online
+</p>
+</div>
 
-        <button class="settings-btn">
-            <i data-lucide="ellipsis"></i>
-        </button>
+<button class="settings-btn" id="settingsBtn">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<circle cx="12" cy="12" r="1"></circle>
+<circle cx="19" cy="12" r="1"></circle>
+<circle cx="5" cy="12" r="1"></circle>
+</svg>
+</button>
 
-    </header>
-<!-- AI Conversation -->
+</header>
+
 <main class="conversation-main">
 
-    <div class="orb-container">
+<div class="orb-container">
 
-        <div class="orb-stage" id="orbStage">
+<div class="orb-stage" id="orbStage">
 
-            <div class="halo"></div>
+<div class="halo"></div>
 
-            <canvas id="orbCanvas"></canvas>
-
-        </div>
-            <!-- Intro -->
-            <div class="orb-text">
-                <h3>Sprich mit Will.</h3>
-                <p>🇺🇿 Mikrofonni bosing va suhbatni boshlang.</p>
-            </div>
-
-            <!-- Subtitle -->
-            <div class="subtitle-box">
-
-                <p class="german"></p>
-
-                <p class="uzbek"></p>
-
-            </div>
-
-            <!-- Microphone -->
-            <button class="mic-btn">
-                <i data-lucide="mic"></i>
-            </button>
-
-        </div>
-
-    </main>
+<canvas id="orbCanvas"></canvas>
 
 </div>
 
-<script>
-    lucide.createIcons();
-</script>
+<div class="orb-text" id="orbText">
+<h3>Sprich mit Will.</h3>
+<p>🇺🇿 Mikrofonni bosing va suhbatni boshlang.</p>
+</div>
 
-<script src="../js/conversation.js?v=99"></script> 
+<div class="subtitle-box is-hidden" id="subtitleBox">
+<p class="german"></p>
+<p class="uzbek"></p>
+</div>
+
+<button class="mic-btn" id="micBtn">
+
+<svg id="micIcon"
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="2">
+
+<path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+
+<path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+
+<line x1="12" y1="19" x2="12" y2="23"></line>
+
+<line x1="8" y1="23" x2="16" y2="23"></line>
+
+</svg>
+
+</button>
+
+<div class="browser-warning" id="browserWarning">
+
+Brauzeringiz ovoz tanishni qo'llab-quvvatlamaydi.
+Chrome yoki Edge'da oching.
+
+</div>
+
+</div>
+
+</main>
+
+</div>
+
+<script src="../js/conversation.js"></script>
 
 </body>
 </html>
