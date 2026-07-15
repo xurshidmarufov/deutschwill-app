@@ -1,372 +1,253 @@
-const PALETTE_STOPS = [
-    { pos: 1.0, color: [124, 92, 255] },
-    { pos: 0.0, color: [59, 130, 246] },
-    { pos: -1.0, color: [37, 99, 235] }
-];
+/* ==========================
+        WILL ORB ENGINE
+========================== */
 
-function lerpColorAtY(y){
+const canvas = document.getElementById("orbCanvas");
+const ctx = canvas.getContext("2d");
 
-    for(let i=0;i<PALETTE_STOPS.length-1;i++){
+const orb = {
 
-        const a=PALETTE_STOPS[i];
-        const b=PALETTE_STOPS[i+1];
+    particles: [],
 
-        if(y<=a.pos && y>=b.pos){
+    rotation: 0,
 
-            const t=(a.pos-y)/(a.pos-b.pos);
+    tilt: 0.35,
 
-            const r=Math.round(a.color[0]+(b.color[0]-a.color[0])*t);
-            const g=Math.round(a.color[1]+(b.color[1]-a.color[1])*t);
-            const bl=Math.round(a.color[2]+(b.color[2]-a.color[2])*t);
+    state: "idle",
 
-            return `rgb(${r},${g},${bl})`;
+    speechLevel: 0,
 
-        }
-
-    }
-
-    return "rgb(124,92,255)";
-
-}
-
-const STATE_PARAMS={
-
-idle:{
-rotYSpeed:0.12,
-rotXSpeed:0.05,
-jitter:0.006,
-radiusMul:1
-},
-
-listening:{
-rotYSpeed:0.30,
-rotXSpeed:0.10,
-jitter:0.016,
-radiusMul:1.05
-},
-
-thinking:{
-rotYSpeed:0.55,
-rotXSpeed:0.05,
-jitter:0.008,
-radiusMul:1
-},
-
-speaking:{
-rotYSpeed:0.22,
-rotXSpeed:0.07,
-jitter:0.010,
-radiusMul:1
-}
+    targetSpeech: 0
 
 };
 
-class Particle{
+const STATE = {
 
-constructor(index,total){
+    idle:{
+        speed:0.12,
+        jitter:0.006,
+        radius:1
+    },
 
-const golden=Math.PI*(3-Math.sqrt(5));
+    listening:{
+        speed:0.30,
+        jitter:0.018,
+        radius:1.05
+    },
 
-const y=1-(index/(total-1))*2;
+    thinking:{
+        speed:0.55,
+        jitter:0.009,
+        radius:1
+    },
 
-const radius=Math.sqrt(1-y*y);
+    speaking:{
+        speed:0.22,
+        jitter:0.012,
+        radius:1
+    }
 
-const theta=golden*index;
+};
 
-this.x0=Math.cos(theta)*radius;
-this.y0=y;
-this.z0=Math.sin(theta)*radius;
+function resizeCanvas(){
 
-this.phase=Math.random()*Math.PI*2;
-this.freq=0.6+Math.random()*0.8;
+    const size = canvas.clientWidth;
 
-this.seed=0.75+Math.random()*0.6;
+    const dpr = Math.min(window.devicePixelRatio || 1,2);
 
-this.color=lerpColorAtY(y);
+    canvas.width = size * dpr;
+    canvas.height = size * dpr;
 
-}
-
-project(time,cx,cy,R,rotY,rotX,jitter){
-
-const live=1+Math.sin(time*this.freq+this.phase)*jitter;
-
-let x=this.x0*live;
-let y=this.y0*live;
-let z=this.z0*live;
-
-let x1=x*Math.cos(rotY)+z*Math.sin(rotY);
-let z1=-x*Math.sin(rotY)+z*Math.cos(rotY);
-
-let y2=y*Math.cos(rotX)-z1*Math.sin(rotX);
-let z2=y*Math.sin(rotX)+z1*Math.cos(rotX);
-
-this.sx=cx+x1*R;
-this.sy=cy+y2*R;
-this.depth=z2;
+    ctx.setTransform(dpr,0,0,dpr,0,0);
 
 }
 
-drawGlow(ctx){
+resizeCanvas();
 
-const d=(this.depth+1)/2;
+window.addEventListener("resize",resizeCanvas);
+/* ==========================
+      PARTICLE CREATION
+========================== */
 
-const size=(2.2+d*3.4)*this.seed;
+const COLORS = [
+"#7C5CFF",
+"#3B82F6",
+"#2563EB"
+];
 
-ctx.globalAlpha=0.08+d*0.18;
+function createParticles(){
 
-ctx.fillStyle=this.color;
+    orb.particles=[];
 
-ctx.beginPath();
-ctx.arc(this.sx,this.sy,size,0,Math.PI*2);
-ctx.fill();
+    const total=260;
 
-}
+    const golden=Math.PI*(3-Math.sqrt(5));
 
-drawCore(ctx){
+    for(let i=0;i<total;i++){
 
-const d=(this.depth+1)/2;
+        const y=1-(i/(total-1))*2;
 
-const size=(1.1+d*2.0)*this.seed;
+        const r=Math.sqrt(1-y*y);
 
-ctx.globalAlpha=0.35+d*0.65;
+        const theta=golden*i;
 
-ctx.fillStyle=this.color;
+        orb.particles.push({
 
-ctx.beginPath();
-ctx.arc(this.sx,this.sy,size,0,Math.PI*2);
-ctx.fill();
+            x:Math.cos(theta)*r,
 
-}
+            y:y,
 
-}
-class ParticleOrb{
+            z:Math.sin(theta)*r,
 
-constructor(canvasEl,count=260){
+            phase:Math.random()*Math.PI*2,
 
-this.canvas=canvasEl;
-this.ctx=canvasEl.getContext("2d");
+            speed:0.6+Math.random()*0.8,
 
-this.t=0;
+            size:0.7+Math.random()*0.6,
 
-this.rotY=0;
-this.rotX=0.35;
+            color:COLORS[
+                Math.floor(Math.random()*COLORS.length)
+            ]
 
-this.state="idle";
+        });
 
-this._curParams={...STATE_PARAMS.idle};
-this._targetParams=STATE_PARAMS.idle;
-
-this.speechAmplitude=0;
-this._ampTarget=0;
-this._nextAmpChangeAt=0;
-
-this.particles=Array.from(
-{length:count},
-(_,i)=>new Particle(i,count)
-);
-
-this.resize();
-
-window.addEventListener(
-"resize",
-()=>this.resize()
-);
+    }
 
 }
 
-resize(){
+createParticles();
+/* ==========================
+      PARTICLE ANIMATION
+========================== */
 
-const rect=this.canvas.getBoundingClientRect();
+function drawOrb(){
 
-const dpr=Math.min(
-window.devicePixelRatio||1,
-2
-);
+    const size = canvas.clientWidth;
 
-this.size=rect.width||220;
+    const center = size / 2;
 
-this.center=this.size/2;
+    const cfg = STATE[orb.state];
 
-this.canvas.width=this.size*dpr;
-this.canvas.height=this.size*dpr;
+    orb.rotation += cfg.speed * 0.01;
 
-this.ctx.setTransform(
-dpr,
-0,
-0,
-dpr,
-0,
-0
-);
+    ctx.clearRect(0,0,size,size);
 
-}
+    const particles = [];
 
-setState(state){
+    for(const p of orb.particles){
 
-if(!STATE_PARAMS[state]) return;
+        const j =
+        1 +
+        Math.sin(
+            performance.now()*0.001*p.speed +
+            p.phase
+        ) * cfg.jitter;
 
-this.state=state;
+        let x = p.x * j;
+        let y = p.y * j;
+        let z = p.z * j;
 
-this._targetParams=STATE_PARAMS[state];
+        const ry = orb.rotation;
 
-}
+        const x1 =
+        x*Math.cos(ry)+
+        z*Math.sin(ry);
 
-setSubtitle(german,uzbek){
+        const z1 =
+        -x*Math.sin(ry)+
+        z*Math.cos(ry);
 
-const g=document.querySelector(".german");
-const u=document.querySelector(".uzbek");
+        const rx = orb.tilt;
 
-if(g) g.textContent=german||"";
-if(u) u.textContent=uzbek||"";
+        const y2 =
+        y*Math.cos(rx)-
+        z1*Math.sin(rx);
 
-}
+        const z2 =
+        y*Math.sin(rx)+
+        z1*Math.cos(rx);
 
-setAudioLevel(level){
+        particles.push({
 
-this._ampTarget=Math.max(
-0,
-Math.min(level,1)
-);
+            x:center+x1*90*cfg.radius,
 
-}
+            y:center+y2*90*cfg.radius,
 
-updateAmplitude(dt){
+            z:z2,
 
-if(this.state!=="speaking"){
+            size:(1.2+(z2+1)*1.2)*p.size,
 
-this.speechAmplitude+=
-(0-this.speechAmplitude)*0.08;
+            alpha:0.25+(z2+1)*0.35,
 
-return;
+            color:p.color
 
-}
+        });
 
-this._nextAmpChangeAt-=dt;
+    }
 
-if(this._nextAmpChangeAt<=0){
+    particles.sort((a,b)=>a.z-b.z);
 
-this._ampTarget=
-0.3+Math.random()*0.7;
+    ctx.filter="blur(4px)";
 
-this._nextAmpChangeAt=
-0.12+Math.random()*0.15;
+    for(const p of particles){
 
-}
+        ctx.globalAlpha=p.alpha*0.35;
 
-this.speechAmplitude+=
-(this._ampTarget-this.speechAmplitude)
-*0.2;
+        ctx.fillStyle=p.color;
 
-}
-  frame(now){
+        ctx.beginPath();
 
-const dt=this.lastTime
-?Math.min((now-this.lastTime)/1000,0.05)
-:0.016;
+        ctx.arc(
+            p.x,
+            p.y,
+            p.size*2,
+            0,
+            Math.PI*2
+        );
 
-this.lastTime=now;
+        ctx.fill();
 
-for(const key of Object.keys(this._curParams)){
+    }
 
-this._curParams[key]+=
-(this._targetParams[key]-this._curParams[key])*0.05;
+    ctx.filter="none";
 
-}
+    for(const p of particles){
 
-this.updateAmplitude(dt);
+        ctx.globalAlpha=p.alpha;
 
-this.t+=dt;
+        ctx.fillStyle=p.color;
 
-this.rotY+=this._curParams.rotYSpeed*dt;
+        ctx.beginPath();
 
-this.rotX=
-0.35+
-Math.sin(this.t*this._curParams.rotXSpeed)*0.12;
+        ctx.arc(
+            p.x,
+            p.y,
+            p.size,
+            0,
+            Math.PI*2
+        );
 
-const breathe=
-1+
-Math.sin(this.t*1.4)*0.035;
+        ctx.fill();
 
-let radiusMul=
-this._curParams.radiusMul*breathe;
+    }
 
-if(this.state==="speaking"){
+    ctx.globalAlpha=1;
 
-radiusMul*=
-0.92+
-this.speechAmplitude*0.20;
+    requestAnimationFrame(drawOrb);
 
 }
 
-const R=
-this.center*
-0.82*
-radiusMul;
+drawOrb();
+/* ==========================
+      UI + STATES
+========================== */
 
-this.ctx.clearRect(
-0,
-0,
-this.size,
-this.size
-);
-
-for(const p of this.particles){
-
-p.project(
-this.t,
-this.center,
-this.center,
-R,
-this.rotY,
-this.rotX,
-this._curParams.jitter
-);
-
-}
-
-this.particles.sort(
-(a,b)=>a.depth-b.depth
-);
-
-this.ctx.filter="blur(5px)";
-
-for(const p of this.particles){
-
-p.drawGlow(this.ctx);
-
-}
-
-this.ctx.filter="none";
-
-for(const p of this.particles){
-
-p.drawCore(this.ctx);
-
-}
-
-this.ctx.globalAlpha=1;
-
-requestAnimationFrame(
-t=>this.frame(t)
-);
-
-}
-
-}
-document.addEventListener("DOMContentLoaded", () => {
-
-const canvas = document.getElementById("orbCanvas");
 const micBtn = document.getElementById("micBtn");
 const micIcon = document.getElementById("micIcon");
+
 const orbText = document.getElementById("orbText");
 const subtitleBox = document.getElementById("subtitleBox");
 const orbStage = document.getElementById("orbStage");
-const browserWarning = document.getElementById("browserWarning");
-
-if (!canvas) return;
-
-const orb = new ParticleOrb(canvas,260);
-orb.frame(performance.now());
 
 const STOP_ICON =
 '<rect x="6" y="6" width="12" height="12" rx="2"></rect>';
@@ -377,184 +258,192 @@ const MIC_ICON =
 '<line x1="12" y1="19" x2="12" y2="23"></line>'+
 '<line x1="8" y1="23" x2="16" y2="23"></line>';
 
-function applyState(state){
+function setState(state){
 
-orb.setState(state);
+    orb.state = state;
 
-const active = state !== "idle";
+    const active = state !== "idle";
 
-orbText.classList.toggle("is-hidden",active);
+    if(orbText)
+        orbText.classList.toggle(
+            "is-hidden",
+            active
+        );
 
-subtitleBox.classList.toggle(
-"is-hidden",
-state !== "speaking"
-);
+    if(subtitleBox)
+        subtitleBox.classList.toggle(
+            "is-hidden",
+            state !== "speaking"
+        );
 
-micBtn.classList.toggle(
-"mic-active",
-state === "listening"
-);
+    if(micBtn)
+        micBtn.classList.toggle(
+            "mic-active",
+            state === "listening"
+        );
 
-micIcon.innerHTML =
-state==="listening"
-?STOP_ICON
-:MIC_ICON;
+    if(micIcon)
+        micIcon.innerHTML =
+            state==="listening"
+            ?STOP_ICON
+            :MIC_ICON;
 
-orbStage.classList.remove(
-"state-listening",
-"state-thinking",
-"state-speaking"
-);
+    if(orbStage){
 
-if(state!=="idle"){
-orbStage.classList.add("state-"+state);
+        orbStage.classList.remove(
+            "state-idle",
+            "state-listening",
+            "state-thinking",
+            "state-speaking"
+        );
+
+        orbStage.classList.add(
+            "state-"+state
+        );
+
+    }
+
 }
 
-}
+setState("idle");
+/* ==========================
+   SPEECH RECOGNITION
+========================== */
 
-const SpeechRecognitionAPI =
+const SpeechRecognition =
 window.SpeechRecognition ||
 window.webkitSpeechRecognition;
 
-const synth =
-window.speechSynthesis;
+const speech =
+SpeechRecognition
+?new SpeechRecognition()
+:null;
 
-if(!SpeechRecognitionAPI || !synth){
+if(speech){
 
-browserWarning.classList.add("is-visible");
+speech.lang="de-DE";
+speech.interimResults=false;
+speech.maxAlternatives=1;
 
-micBtn.disabled=true;
+speech.onstart=()=>{
 
-return;
-
-}
-
-const recognition =
-new SpeechRecognitionAPI();
-
-recognition.lang="de-DE";
-recognition.interimResults=false;
-recognition.maxAlternatives=1;
-
-let isBusy=false;
-  async function getWillResponse(userText){
-
-// Bu vaqtinchalik.
-// Keyin OpenAI API bilan almashtiriladi.
-
-await new Promise(r=>setTimeout(r,800));
-
-return{
-
-german:"Das ist interessant! Erzähl mir mehr.",
-uzbek:"Bu qiziq! Menga yana gapirib bering."
+setState("listening");
 
 };
 
-}
+speech.onresult=(event)=>{
 
-recognition.onstart=()=>{
-
-applyState("listening");
-
-};
-
-recognition.onresult=async(event)=>{
-
-const transcript=
+const text=
 event.results[0][0].transcript;
 
-applyState("thinking");
+console.log("User:",text);
 
-const reply=
-await getWillResponse(transcript);
+window.userSpeech=text;
 
-orb.setSubtitle(
-reply.german,
-reply.uzbek
-);
+setState("thinking");
 
-const utterance=
-new SpeechSynthesisUtterance(
-reply.german
-);
-
-utterance.lang="de-DE";
-
-utterance.onstart=()=>{
-
-applyState("speaking");
+getAIResponse(text);
 
 };
 
-utterance.onend=()=>{
+speech.onerror=()=>{
 
-applyState("idle");
-
-isBusy=false;
+setState("idle");
 
 };
 
-utterance.onerror=()=>{
-
-applyState("idle");
-
-isBusy=false;
-
-};
-
-synth.speak(utterance);
-
-};
-
-recognition.onerror=()=>{
-
-applyState("idle");
-
-isBusy=false;
-
-};
-
-recognition.onend=()=>{
+speech.onend=()=>{
 
 if(orb.state==="listening"){
 
-applyState("idle");
-
-isBusy=false;
+setState("idle");
 
 }
 
 };
 
+}else{
+
+console.warn("Speech Recognition qo'llab-quvvatlanmaydi.");
+
+}
+
+if(micBtn){
+
 micBtn.addEventListener("click",()=>{
 
-if(isBusy){
+if(!speech) return;
 
-recognition.stop();
+if(orb.state==="listening"){
 
-synth.cancel();
+speech.stop();
 
-applyState("idle");
-
-isBusy=false;
+setState("idle");
 
 return;
 
 }
 
-isBusy=true;
+speech.start();
+
+});
+
+}
+/* ==========================
+      AI + TTS
+========================== */
+
+async function getAIResponse(userText){
 
 try{
 
-recognition.start();
+// Hozircha test javobi.
+// Keyin OpenAI API bilan almashtiramiz.
 
-}catch(e){
+await new Promise(resolve=>setTimeout(resolve,900));
 
-isBusy=false;
+const german =
+"Das ist interessant. Erzähl mir bitte mehr.";
+
+const uzbek =
+"Bu qiziq. Menga yana ko'proq gapirib bering.";
+
+const g =
+document.querySelector(".german");
+
+const u =
+document.querySelector(".uzbek");
+
+if(g) g.textContent = german;
+if(u) u.textContent = uzbek;
+
+setState("speaking");
+
+const voice =
+new SpeechSynthesisUtterance(german);
+
+voice.lang = "de-DE";
+
+voice.rate = 1;
+
+voice.pitch = 1;
+
+voice.onend = ()=>{
+
+setState("idle");
+
+};
+
+speechSynthesis.cancel();
+
+speechSynthesis.speak(voice);
+
+}catch(err){
+
+console.error(err);
+
+setState("idle");
 
 }
 
-});
-
-});
+}
